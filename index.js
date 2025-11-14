@@ -83,8 +83,13 @@ async function makeRequest() {
     state.requestCount++;
     state.totalRequests++;
     
-    // Verificar si la respuesta es diferente a "Sin Disponibilidad"
-    if (response.data.message !== "Sin Disponibilidad") {
+    // Verificación robusta de la respuesta
+    const hasDifferentResponse = 
+      !response.data || // Si no hay data
+      !response.data.message || // Si no existe la propiedad message
+      response.data.message !== "Sin Disponibilidad"; // Si existe pero es diferente
+    
+    if (hasDifferentResponse) {
       const venezuelaTime = getVenezuelaTime();
       state.totalChanges++;
       
