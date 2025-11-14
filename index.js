@@ -124,7 +124,7 @@ async function makeRequest() {
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
     const errorMessage = `❌ ERROR: ${error.message}`;
-    writeToLog(errorMessage);
+    //writeToLog(errorMessage);
     
     // Si es un error de timeout, esperar un poco más antes del próximo intento
     if (error.code === 'ECONNABORTED') {
