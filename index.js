@@ -316,10 +316,9 @@ app.get('/', (req, res) => {
                 <div class="form-group">
                     <label for="idlocation">Ubicación:</label>
                     <select id="idlocation" name="idlocation">
-                        <option value="12" ${state.currentConfig.idlocation == 12 ? 'selected' : ''}>Sede Principal (12)</option>
-                        <option value="1" ${state.currentConfig.idlocation == 1 ? 'selected' : ''}>Sede 1</option>
-                        <option value="2" ${state.currentConfig.idlocation == 2 ? 'selected' : ''}>Sede 2</option>
-                        <option value="3" ${state.currentConfig.idlocation == 3 ? 'selected' : ''}>Sede 3</option>
+                        <option value="12" ${state.currentConfig.idlocation == 12 ? 'selected' : ''}>Galería Fente (12)</option>
+                        <option value="1" ${state.currentConfig.idlocation == 62 ? 'selected' : ''}>Sambil</option>
+                        <option value="2" ${state.currentConfig.idlocation == 11 ? 'selected' : ''}>Aeropuerto</option>
                     </select>
                 </div>
                 <button type="submit">Actualizar Configuración</button>
