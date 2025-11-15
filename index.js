@@ -37,13 +37,13 @@ let state = {
 function writeToLog(message) {
   const timestamp = getVenezuelaTime();
   const logMessage = `[${timestamp}] ${message}\n`;
-  
+
   fs.appendFile(CONFIG.logFile, logMessage, (err) => {
     if (err) {
       console.error('Error escribiendo en log:', err);
     }
   });
-  
+
   console.log(message);
 }
 
@@ -58,7 +58,7 @@ function readLogs(limit = 100) {
     if (!fs.existsSync(CONFIG.logFile)) {
       return [];
     }
-    
+
     const logContent = fs.readFileSync(CONFIG.logFile, 'utf8');
     const lines = logContent.split('\n').filter(line => line.trim() !== '');
     return lines.slice(-limit).reverse(); // Últimas líneas primero
@@ -67,7 +67,7 @@ function readLogs(limit = 100) {
   }
 }
 
-// Función para hacer la solicitud POST
+// Función para hacer la solicitud POST (VERSIÓN CORREGIDA)
 async function makeRequest() {
   if (!state.isRunning) return;
 
@@ -82,58 +82,62 @@ async function makeRequest() {
 
     state.requestCount++;
     state.totalRequests++;
-    
+
     // Verificación robusta de la respuesta
-    const hasDifferentResponse = 
+    const hasDifferentResponse =
       !response.data || // Si no hay data
       !response.data.message || // Si no existe la propiedad message
       response.data.message !== "Sin Disponibilidad"; // Si existe pero es diferente
-    
+
     if (hasDifferentResponse) {
       const venezuelaTime = getVenezuelaTime();
       state.totalChanges++;
-      
+
       const alertMessage = `🚨 RESPUESTA DIFERENTE ENCONTRADA - ${venezuelaTime}`;
       const responseMessage = `📦 Respuesta: ${JSON.stringify(response.data)}`;
-      
+
       writeToLog(alertMessage);
       writeToLog(responseMessage);
       writeToLog('---');
-      
+
       // Actualizar estado
       state.lastDifferentResponse = response.data;
       state.lastDifferentResponseTime = venezuelaTime;
       state.hourWithoutChanges = false;
     }
-    
+
+  } catch (error) {
+    const venezuelaTime = getVenezuelaTime();
+    // Solo loguear errores que NO sean 400
+    if (!error.message.includes('400') && !error.message.includes('Bad Request')) {
+      const errorMessage = `❌ ERROR: ${error.message}`;
+      writeToLog(errorMessage);
+    }
+
+    // Si es un error de timeout, esperar un poco más antes del próximo intento
+    if (error.code === 'ECONNABORTED') {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+  } finally {
+    // ✅ ESTA PARTE SIEMPRE SE EJECUTA, TANTO EN ÉXITO COMO EN ERROR
     // Verificar si es hora de hacer log (cada hora)
     const now = Date.now();
     if (now - state.lastLogTime >= CONFIG.logInterval) {
       const venezuelaTime = getVenezuelaTime();
-      
+
       let logMessage;
       if (state.hourWithoutChanges) {
         logMessage = `📊 [LOG HORARIO] ${venezuelaTime} - ${state.requestCount} solicitudes realizadas - Sin cambios en la última hora`;
       } else {
         logMessage = `🎯 [LOG HORARIO] ${venezuelaTime} - ${state.requestCount} solicitudes realizadas - Se encontraron cambios durante esta hora | Último cambio: ${state.lastDifferentResponseTime}`;
       }
-      
+
       writeToLog(logMessage);
-      
+
       // Reiniciar contadores para la próxima hora
       state.lastLogTime = now;
       state.requestCount = 0;
       state.hourWithoutChanges = true;
-    }
-    
-  } catch (error) {
-    const venezuelaTime = getVenezuelaTime();
-    const errorMessage = `❌ ERROR: ${error.message}`;
-    //writeToLog(errorMessage);
-    
-    // Si es un error de timeout, esperar un poco más antes del próximo intento
-    if (error.code === 'ECONNABORTED') {
-      await new Promise(resolve => setTimeout(resolve, 5000));
     }
   }
 }
@@ -149,7 +153,7 @@ async function startMonitor() {
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
-  
+
   // Bucle de monitoreo
   while (state.isRunning) {
     await makeRequest();
@@ -163,9 +167,9 @@ app.get('/', (req, res) => {
   const hours = Math.floor(uptime / 3600);
   const minutes = Math.floor((uptime % 3600) / 60);
   const seconds = uptime % 60;
-  
+
   const logs = readLogs(50); // Últimos 50 logs
-  
+
   const html = `
 <!DOCTYPE html>
 <html lang="es">
@@ -284,13 +288,13 @@ app.get('/', (req, res) => {
         <h2>Últimos Logs</h2>
         <div class="logs">
             ${logs.map(log => {
-                let cssClass = 'log-info';
-                if (log.includes('🚨') || log.includes('RESPUESTA DIFERENTE')) cssClass = 'log-success';
-                if (log.includes('❌') || log.includes('ERROR')) cssClass = 'log-error';
-                if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
-                
-                return `<div class="log-entry ${cssClass}">${log}</div>`;
-            }).join('')}
+    let cssClass = 'log-info';
+    if (log.includes('🚨') || log.includes('RESPUESTA DIFERENTE')) cssClass = 'log-success';
+    if (log.includes('❌') || log.includes('ERROR')) cssClass = 'log-error';
+    if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
+
+    return `<div class="log-entry ${cssClass}">${log}</div>`;
+  }).join('')}
             ${logs.length === 0 ? '<div class="log-entry">No hay logs disponibles</div>' : ''}
         </div>
         
@@ -308,7 +312,7 @@ app.get('/', (req, res) => {
 </body>
 </html>
   `;
-  
+
   res.send(html);
 });
 
@@ -334,7 +338,7 @@ app.get('/api/logs', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🌐 Servidor web corriendo en puerto ${PORT}`);
   console.log(`📊 Dashboard disponible en: http://localhost:${PORT}`);
-  
+
   // Iniciar el monitor después de que Express esté listo
   startMonitor().catch(error => {
     console.error('Error fatal en el monitor:', error);
