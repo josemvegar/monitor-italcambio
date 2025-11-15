@@ -109,7 +109,7 @@ async function makeRequest() {
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
     // Solo loguear errores que NO sean 400
-    if (!error.message.includes('400') && !error.message.includes('Bad Request')) {
+    if (!error.message.includes('404') && !error.message.includes('Bad Request')) {
       const errorMessage = `❌ ERROR: ${error.message}`;
       writeToLog(errorMessage);
     }
