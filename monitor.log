@@ -1,0 +1,693 @@
+[2025-11-18 21:32:00] 🚀 Iniciando monitor de Italcambio...
+📍 Ubicación: 12
+📅 Fecha: 15/11/2025
+⏰ Zona horaria: America/Caracas
+🔁 Intervalo de verificación: 1000 ms
+📝 Log cada: 60 minutos
+==================================================
+[2025-11-18 21:32:31] ⚙️ CONFIGURACIÓN ACTUALIZADA: De Ubicación 12, Fecha 15/11/2025 → A Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:32:32] ⚙️ CONFIGURACIÓN ACTUALIZADA: De Ubicación 12, Fecha 20/11/2025 → A Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:34:22] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 0
+[2025-11-18 21:34:35] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 0
+[2025-11-18 21:42:25] Monitor detenido por el usuario
+[2025-11-18 21:45:52] 🚀 Iniciando monitor de Italcambio...
+📍 Ubicación: 12
+📅 Fecha: 15/11/2025
+⏰ Zona horaria: America/Caracas
+🔁 Intervalo de verificación: 1000 ms
+📝 Log cada: 60 minutos
+==================================================
+[2025-11-18 21:46:01] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:46:01
+[2025-11-18 21:46:01] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:46:01] 📦 Respuesta: [{"idschedule":36533,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36534,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:46:01] ---
+[2025-11-18 21:46:11] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:46:11
+[2025-11-18 21:46:11] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:46:11] 📦 Respuesta: [{"idschedule":36543,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36544,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:46:11] ---
+[2025-11-18 21:46:21] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:46:21
+[2025-11-18 21:46:21] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:46:21] 📦 Respuesta: [{"idschedule":36533,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36534,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:46:21] ---
+[2025-11-18 21:46:31] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:46:31
+[2025-11-18 21:46:32] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:46:32] 📦 Respuesta: [{"idschedule":36543,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36544,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:46:32] ---
+[2025-11-18 21:46:40] ⚙️ CONFIGURACIÓN ACTUALIZADA: De Ubicación 12, Fecha 15/11/2025 → A Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:46:42] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:46:42
+[2025-11-18 21:46:42] 📦 Respuesta: [{"idschedule":36553,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36554,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:46:42] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:46:42] ---
+[2025-11-18 21:46:52] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:46:52
+[2025-11-18 21:46:52] 📦 Respuesta: [{"idschedule":36563,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36564,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:46:52] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:46:52] ---
+[2025-11-18 21:47:02] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:47:02
+[2025-11-18 21:47:02] 📦 Respuesta: [{"idschedule":36573,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36574,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:47:02] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:47:02] ---
+[2025-11-18 21:47:12] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:47:12
+[2025-11-18 21:47:12] 📦 Respuesta: [{"idschedule":36583,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36584,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:47:12] ---
+[2025-11-18 21:47:12] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:47:22] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:47:22] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:47:22
+[2025-11-18 21:47:22] 📦 Respuesta: [{"idschedule":36593,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36594,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:47:22] ---
+[2025-11-18 21:47:32] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:47:32
+[2025-11-18 21:47:32] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:47:32] ---
+[2025-11-18 21:47:32] 📦 Respuesta: [{"idschedule":36603,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36604,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:47:43] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:47:43
+[2025-11-18 21:47:43] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:47:43] 📦 Respuesta: [{"idschedule":36613,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36614,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:47:43] ---
+[2025-11-18 21:47:53] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:47:53
+[2025-11-18 21:47:53] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:47:53] 📦 Respuesta: [{"idschedule":36623,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36624,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:47:53] ---
+[2025-11-18 21:48:03] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:48:03
+[2025-11-18 21:48:03] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:48:03] 📦 Respuesta: [{"idschedule":36633,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36634,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:48:03] ---
+[2025-11-18 21:48:13] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:48:13
+[2025-11-18 21:48:13] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:48:13] 📦 Respuesta: [{"idschedule":36643,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36644,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:48:13] ---
+[2025-11-18 21:48:23] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:48:23
+[2025-11-18 21:48:23] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:48:23] 📦 Respuesta: [{"idschedule":36653,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36654,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:48:23] ---
+[2025-11-18 21:49:10] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 0
+[2025-11-18 21:49:28] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 21:49:32] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 21:52:33] ❌ ERROR: Error
+[2025-11-18 21:52:34] ❌ ERROR: Error
+[2025-11-18 21:52:39] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:52:39
+[2025-11-18 21:52:39] ⚙️ Configuración: Ubicación 12, Fecha 20/11/2025
+[2025-11-18 21:52:39] ---
+[2025-11-18 21:52:39] 📦 Respuesta: [{"idschedule":36528,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36529,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:52:39] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:52:39] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:52:39] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:52:39] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:52:39] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2155,"statuscode":200}
+[2025-11-18 21:52:42] Monitor detenido por el usuario
+[2025-11-18 21:52:44] 🚀 Iniciando monitor de Italcambio...
+📍 Ubicación: 12
+📅 Fecha: 15/11/2025
+⏰ Zona horaria: America/Caracas
+🔁 Intervalo de verificación: 1000 ms
+📝 Log cada: 60 minutos
+==================================================
+[2025-11-18 21:52:45] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:52:45
+[2025-11-18 21:52:45] 📦 Respuesta: [{"idschedule":36533,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36534,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:52:45] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:52:45] ---
+[2025-11-18 21:52:50] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:52:50
+[2025-11-18 21:52:50] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:52:50] 📦 Respuesta: [{"idschedule":36538,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36539,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:52:50] ---
+[2025-11-18 21:52:55] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 21:52:55] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:52:55
+[2025-11-18 21:52:55] 📦 Respuesta: [{"idschedule":36543,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36544,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:52:55] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:52:55] ---
+[2025-11-18 21:52:57] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 21:53:00] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:00] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:00
+[2025-11-18 21:53:00] 📦 Respuesta: [{"idschedule":36548,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36549,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:00] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:00] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:00] ---
+[2025-11-18 21:53:00] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:01] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:01] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:06] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:06
+[2025-11-18 21:53:06] 📦 Respuesta: [{"idschedule":36553,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36554,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:06] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:06] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:06] ---
+[2025-11-18 21:53:06] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:06] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2018,"statuscode":200}
+[2025-11-18 21:53:06] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:06] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:11] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:11
+[2025-11-18 21:53:11] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:11] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:11] 📦 Respuesta: [{"idschedule":36558,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36559,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:11] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:11] ---
+[2025-11-18 21:53:11] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2920,"statuscode":200}
+[2025-11-18 21:53:11] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:11] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2843,"statuscode":200}
+[2025-11-18 21:53:16] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:16
+[2025-11-18 21:53:16] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:16] 📦 Respuesta: [{"idschedule":36563,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36564,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:16] ---
+[2025-11-18 21:53:16] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:16] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:16] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2981,"statuscode":200}
+[2025-11-18 21:53:16] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:16] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2098,"statuscode":200}
+[2025-11-18 21:53:22] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:22
+[2025-11-18 21:53:22] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:22] 📦 Respuesta: [{"idschedule":36568,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36569,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:22] ---
+[2025-11-18 21:53:22] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:22] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:22] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2958,"statuscode":200}
+[2025-11-18 21:53:22] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:22] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:27] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:27
+[2025-11-18 21:53:27] 📦 Respuesta: [{"idschedule":36573,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36574,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:27] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:27] ---
+[2025-11-18 21:53:27] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:27] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:27] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2434,"statuscode":200}
+[2025-11-18 21:53:27] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:27] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2186,"statuscode":200}
+[2025-11-18 21:53:32] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:32
+[2025-11-18 21:53:32] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:32] 📦 Respuesta: [{"idschedule":36578,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36579,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:32] ---
+[2025-11-18 21:53:32] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:32] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:32] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2914,"statuscode":200}
+[2025-11-18 21:53:32] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:32] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2612,"statuscode":200}
+[2025-11-18 21:53:38] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:38] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:38
+[2025-11-18 21:53:38] 📦 Respuesta: [{"idschedule":36583,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36584,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:38] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:38] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:38] ---
+[2025-11-18 21:53:38] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2551,"statuscode":200}
+[2025-11-18 21:53:38] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:38] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:43] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:43
+[2025-11-18 21:53:43] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:43] 📦 Respuesta: [{"idschedule":36588,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36589,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:43] ---
+[2025-11-18 21:53:43] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:43] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:43] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2498,"statuscode":200}
+[2025-11-18 21:53:43] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:43] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2689,"statuscode":200}
+[2025-11-18 21:53:48] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:48
+[2025-11-18 21:53:48] 📦 Respuesta: [{"idschedule":36593,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36594,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:48] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:48] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:48] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:48] ---
+[2025-11-18 21:53:48] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:48] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:48] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2277,"statuscode":200}
+[2025-11-18 21:53:53] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:53
+[2025-11-18 21:53:53] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:53] 📦 Respuesta: [{"idschedule":36598,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36599,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:53] ---
+[2025-11-18 21:53:53] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:53] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:53] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2775,"statuscode":200}
+[2025-11-18 21:53:53] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:54] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2025,"statuscode":200}
+[2025-11-18 21:53:59] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:53:59
+[2025-11-18 21:53:59] 📦 Respuesta: [{"idschedule":36603,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36604,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:53:59] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:53:59] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:53:59] ---
+[2025-11-18 21:53:59] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:53:59] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:53:59] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:53:59] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2308,"statuscode":200}
+[2025-11-18 21:54:04] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:04
+[2025-11-18 21:54:04] 📦 Respuesta: [{"idschedule":36608,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36609,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:04] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:04] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:04] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:04] ---
+[2025-11-18 21:54:04] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:04] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:04] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2674,"statuscode":200}
+[2025-11-18 21:54:09] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:09
+[2025-11-18 21:54:09] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:09] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:09] 📦 Respuesta: [{"idschedule":36613,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36614,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:09] ---
+[2025-11-18 21:54:09] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:09] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:09] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:09] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2596,"statuscode":200}
+[2025-11-18 21:54:15] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:15
+[2025-11-18 21:54:15] 📦 Respuesta: [{"idschedule":36618,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36619,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:15] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:15] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:15] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:15] ---
+[2025-11-18 21:54:15] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:15] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:15] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:20] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:20
+[2025-11-18 21:54:20] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:20] 📦 Respuesta: [{"idschedule":36623,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36624,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:20] ---
+[2025-11-18 21:54:20] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:20] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:20] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:20] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:20] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2317,"statuscode":200}
+[2025-11-18 21:54:25] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:25
+[2025-11-18 21:54:25] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:25] 📦 Respuesta: [{"idschedule":36628,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36629,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:25] ---
+[2025-11-18 21:54:25] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:25] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:25] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2689,"statuscode":200}
+[2025-11-18 21:54:25] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:25] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2833,"statuscode":200}
+[2025-11-18 21:54:30] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:30
+[2025-11-18 21:54:30] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:30] 📦 Respuesta: [{"idschedule":36633,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36634,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:30] ---
+[2025-11-18 21:54:30] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:30] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:30] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:31] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:31] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2448,"statuscode":200}
+[2025-11-18 21:54:36] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:36
+[2025-11-18 21:54:36] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:36] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:36] 📦 Respuesta: [{"idschedule":36638,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36639,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:36] ---
+[2025-11-18 21:54:36] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:36] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2939,"statuscode":200}
+[2025-11-18 21:54:36] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:36] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2959,"statuscode":200}
+[2025-11-18 21:54:41] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:41
+[2025-11-18 21:54:41] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:41] 📦 Respuesta: [{"idschedule":36643,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36644,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:41] ---
+[2025-11-18 21:54:41] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:41] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:41] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2196,"statuscode":200}
+[2025-11-18 21:54:41] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:41] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2960,"statuscode":200}
+[2025-11-18 21:54:46] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:46
+[2025-11-18 21:54:46] 📦 Respuesta: [{"idschedule":36648,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36649,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:46] ---
+[2025-11-18 21:54:46] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:46] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:46] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:46] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2785,"statuscode":200}
+[2025-11-18 21:54:46] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:46] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2859,"statuscode":200}
+[2025-11-18 21:54:52] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:52
+[2025-11-18 21:54:52] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:52] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:52] 📦 Respuesta: [{"idschedule":36653,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36654,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:52] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:52] ---
+[2025-11-18 21:54:52] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:54:52] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:52] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2899,"statuscode":200}
+[2025-11-18 21:54:57] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:54:57
+[2025-11-18 21:54:57] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:54:57] 📦 Respuesta: [{"idschedule":36658,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36659,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:54:57] ---
+[2025-11-18 21:54:57] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:54:57] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:54:57] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2047,"statuscode":200}
+[2025-11-18 21:54:57] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:54:57] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2095,"statuscode":200}
+[2025-11-18 21:55:02] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:02
+[2025-11-18 21:55:02] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:02] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:02] 📦 Respuesta: [{"idschedule":36663,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36664,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:02] ---
+[2025-11-18 21:55:02] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:02] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2574,"statuscode":200}
+[2025-11-18 21:55:02] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:02] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:08] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:08
+[2025-11-18 21:55:08] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:08] ---
+[2025-11-18 21:55:08] 📦 Respuesta: [{"idschedule":36668,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36669,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:08] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:08] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:08] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2204,"statuscode":200}
+[2025-11-18 21:55:08] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:08] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2398,"statuscode":200}
+[2025-11-18 21:55:13] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:13
+[2025-11-18 21:55:13] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:13] 📦 Respuesta: [{"idschedule":36673,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36674,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:13] ---
+[2025-11-18 21:55:13] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:13] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:13] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2540,"statuscode":200}
+[2025-11-18 21:55:13] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:13] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:18] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:18
+[2025-11-18 21:55:18] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:18] 📦 Respuesta: [{"idschedule":36678,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36679,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:18] ---
+[2025-11-18 21:55:18] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:18] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:18] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2547,"statuscode":200}
+[2025-11-18 21:55:18] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:18] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2543,"statuscode":200}
+[2025-11-18 21:55:24] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:24
+[2025-11-18 21:55:24] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:24] 📦 Respuesta: [{"idschedule":36683,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36684,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:24] ---
+[2025-11-18 21:55:24] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:24] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:24] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:24] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:24] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:29] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:29
+[2025-11-18 21:55:29] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:29] ---
+[2025-11-18 21:55:29] 📦 Respuesta: [{"idschedule":36688,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36689,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:29] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:29] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:29] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2900,"statuscode":200}
+[2025-11-18 21:55:29] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:29] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2668,"statuscode":200}
+[2025-11-18 21:55:34] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:34
+[2025-11-18 21:55:34] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:34] ---
+[2025-11-18 21:55:34] 📦 Respuesta: [{"idschedule":36693,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36694,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:34] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:34] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:34] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2776,"statuscode":200}
+[2025-11-18 21:55:34] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:34] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:39] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:39
+[2025-11-18 21:55:39] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:39] 📦 Respuesta: [{"idschedule":36698,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36699,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:39] ---
+[2025-11-18 21:55:39] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:39] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:39] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2129,"statuscode":200}
+[2025-11-18 21:55:40] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:40] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:45] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:45
+[2025-11-18 21:55:45] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:45] 📦 Respuesta: [{"idschedule":36703,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36704,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:45] ---
+[2025-11-18 21:55:45] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:45] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:45] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2320,"statuscode":200}
+[2025-11-18 21:55:45] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:45] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2700,"statuscode":200}
+[2025-11-18 21:55:50] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:50
+[2025-11-18 21:55:50] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:50] 📦 Respuesta: [{"idschedule":36708,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36709,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:50] ---
+[2025-11-18 21:55:50] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:50] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:50] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:50] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:50] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:55:55] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:55:55
+[2025-11-18 21:55:55] 📦 Respuesta: [{"idschedule":36713,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36714,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:55:55] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:55:55] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:55:55] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:55:55] ---
+[2025-11-18 21:55:55] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2641,"statuscode":200}
+[2025-11-18 21:55:55] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:55:55] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:01] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:01
+[2025-11-18 21:56:01] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:01] 📦 Respuesta: [{"idschedule":36718,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36719,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:01] ---
+[2025-11-18 21:56:01] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:01] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:01] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2517,"statuscode":200}
+[2025-11-18 21:56:01] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:01] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:06] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:06] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:06
+[2025-11-18 21:56:06] 📦 Respuesta: [{"idschedule":36723,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36724,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:06] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:06] ---
+[2025-11-18 21:56:06] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:06] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2924,"statuscode":200}
+[2025-11-18 21:56:06] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:06] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2803,"statuscode":200}
+[2025-11-18 21:56:11] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:11
+[2025-11-18 21:56:11] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:11] 📦 Respuesta: [{"idschedule":36728,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36729,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:11] ---
+[2025-11-18 21:56:11] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:11] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:11] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:11] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:11] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2390,"statuscode":200}
+[2025-11-18 21:56:17] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:17
+[2025-11-18 21:56:17] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:17] 📦 Respuesta: [{"idschedule":36733,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36734,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:17] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:17] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:17] ---
+[2025-11-18 21:56:17] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:17] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:17] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2754,"statuscode":200}
+[2025-11-18 21:56:22] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:22
+[2025-11-18 21:56:22] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:22] ---
+[2025-11-18 21:56:22] 📦 Respuesta: [{"idschedule":36738,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36739,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:22] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:22] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:22] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:22] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:22] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2964,"statuscode":200}
+[2025-11-18 21:56:27] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:27
+[2025-11-18 21:56:27] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:27] 📦 Respuesta: [{"idschedule":36743,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36744,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:27] ---
+[2025-11-18 21:56:27] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:27] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:27] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:27] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:27] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2102,"statuscode":200}
+[2025-11-18 21:56:32] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:32
+[2025-11-18 21:56:32] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:32] 📦 Respuesta: [{"idschedule":36748,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36749,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:32] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:32] ---
+[2025-11-18 21:56:32] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:32] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:33] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:33] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2385,"statuscode":200}
+[2025-11-18 21:56:38] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:38
+[2025-11-18 21:56:38] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:38] 📦 Respuesta: [{"idschedule":36753,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36754,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:38] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:38] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:38] ---
+[2025-11-18 21:56:38] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2348,"statuscode":200}
+[2025-11-18 21:56:38] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:38] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2096,"statuscode":200}
+[2025-11-18 21:56:43] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:43
+[2025-11-18 21:56:43] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:43] 📦 Respuesta: [{"idschedule":36758,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36759,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:43] ---
+[2025-11-18 21:56:43] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:43] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:43] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:43] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:43] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2838,"statuscode":200}
+[2025-11-18 21:56:48] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:48
+[2025-11-18 21:56:48] 📦 Respuesta: [{"idschedule":36763,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36764,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:48] ---
+[2025-11-18 21:56:48] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:48] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:48] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:48] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2860,"statuscode":200}
+[2025-11-18 21:56:48] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:48] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2577,"statuscode":200}
+[2025-11-18 21:56:54] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:54
+[2025-11-18 21:56:54] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:54] 📦 Respuesta: [{"idschedule":36768,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36769,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:54] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:54] ---
+[2025-11-18 21:56:54] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:54] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2365,"statuscode":200}
+[2025-11-18 21:56:54] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:54] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2132,"statuscode":200}
+[2025-11-18 21:56:59] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:56:59
+[2025-11-18 21:56:59] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:56:59] 📦 Respuesta: [{"idschedule":36773,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36774,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:56:59] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:56:59] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:56:59] ---
+[2025-11-18 21:56:59] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:56:59] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:56:59] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2004,"statuscode":200}
+[2025-11-18 21:57:04] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:04] 📦 Respuesta: [{"idschedule":36778,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36779,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:04] ---
+[2025-11-18 21:57:04] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:04] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:04] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:04
+[2025-11-18 21:57:04] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2176,"statuscode":200}
+[2025-11-18 21:57:04] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:04] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2823,"statuscode":200}
+[2025-11-18 21:57:10] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:09
+[2025-11-18 21:57:10] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:10] 📦 Respuesta: [{"idschedule":36783,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36784,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:10] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:10] ---
+[2025-11-18 21:57:10] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:10] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:10] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:10] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:15] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:15] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:15
+[2025-11-18 21:57:15] 📦 Respuesta: [{"idschedule":36788,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36789,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:15] ---
+[2025-11-18 21:57:15] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:15] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:15] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:15] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:15] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:20] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:20
+[2025-11-18 21:57:20] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:20] 📦 Respuesta: [{"idschedule":36793,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36794,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:20] ---
+[2025-11-18 21:57:20] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:20] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:20] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2618,"statuscode":200}
+[2025-11-18 21:57:20] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:20] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2501,"statuscode":200}
+[2025-11-18 21:57:25] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:25] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:25
+[2025-11-18 21:57:25] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:25] 📦 Respuesta: [{"idschedule":36798,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36799,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:25] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:25] ---
+[2025-11-18 21:57:25] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2482,"statuscode":200}
+[2025-11-18 21:57:25] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:26] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2623,"statuscode":200}
+[2025-11-18 21:57:31] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:31
+[2025-11-18 21:57:31] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:31] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:31] ---
+[2025-11-18 21:57:31] 📦 Respuesta: [{"idschedule":36803,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36804,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:31] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:31] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2278,"statuscode":200}
+[2025-11-18 21:57:31] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:31] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2573,"statuscode":200}
+[2025-11-18 21:57:36] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:36
+[2025-11-18 21:57:36] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:36] 📦 Respuesta: [{"idschedule":36808,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36809,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:36] ---
+[2025-11-18 21:57:36] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:36] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:36] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:36] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:36] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2455,"statuscode":200}
+[2025-11-18 21:57:41] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:41] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:41
+[2025-11-18 21:57:41] 📦 Respuesta: [{"idschedule":36813,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36814,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:41] ---
+[2025-11-18 21:57:41] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:41] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:41] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2614,"statuscode":200}
+[2025-11-18 21:57:41] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:41] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:47] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:47
+[2025-11-18 21:57:47] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:47] 📦 Respuesta: [{"idschedule":36818,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36819,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:47] ---
+[2025-11-18 21:57:47] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:47] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:47] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:47] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:47] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2837,"statuscode":200}
+[2025-11-18 21:57:52] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:52
+[2025-11-18 21:57:52] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:52] 📦 Respuesta: [{"idschedule":36823,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36824,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:52] ---
+[2025-11-18 21:57:52] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:52] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:52] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:52] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:52] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:57] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:57:57] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:57:57
+[2025-11-18 21:57:57] 📦 Respuesta: [{"idschedule":36828,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36829,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:57:57] ---
+[2025-11-18 21:57:57] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:57:57] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:57:57] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:57:57] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:57:57] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:58:02] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:02
+[2025-11-18 21:58:02] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:02] 📦 Respuesta: [{"idschedule":36833,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36834,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:02] ---
+[2025-11-18 21:58:02] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:02] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:02] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2649,"statuscode":200}
+[2025-11-18 21:58:03] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:03] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2404,"statuscode":200}
+[2025-11-18 21:58:08] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:08
+[2025-11-18 21:58:08] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:08] 📦 Respuesta: [{"idschedule":36838,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36839,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:08] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:08] ---
+[2025-11-18 21:58:08] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:08] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2599,"statuscode":200}
+[2025-11-18 21:58:08] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:08] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2095,"statuscode":200}
+[2025-11-18 21:58:13] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:13
+[2025-11-18 21:58:13] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:13] 📦 Respuesta: [{"idschedule":36843,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36844,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:13] ---
+[2025-11-18 21:58:13] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:13] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:13] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2354,"statuscode":200}
+[2025-11-18 21:58:13] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:13] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2223,"statuscode":200}
+[2025-11-18 21:58:18] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:18
+[2025-11-18 21:58:18] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:18] 📦 Respuesta: [{"idschedule":36848,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36849,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:18] ---
+[2025-11-18 21:58:18] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:18] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:18] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:58:19] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:19] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2049,"statuscode":200}
+[2025-11-18 21:58:24] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:24
+[2025-11-18 21:58:24] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:24] 📦 Respuesta: [{"idschedule":36853,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36854,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:24] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:24] ---
+[2025-11-18 21:58:24] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:24] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2763,"statuscode":200}
+[2025-11-18 21:58:24] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:24] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2046,"statuscode":200}
+[2025-11-18 21:58:29] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:29
+[2025-11-18 21:58:29] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:29] 📦 Respuesta: [{"idschedule":36858,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36859,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:29] ---
+[2025-11-18 21:58:29] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:29] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:29] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2665,"statuscode":200}
+[2025-11-18 21:58:29] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:29] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2730,"statuscode":200}
+[2025-11-18 21:58:34] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 21:58:34
+[2025-11-18 21:58:34] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 21:58:34] 📦 Respuesta: [{"idschedule":36863,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36864,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 21:58:34] ---
+[2025-11-18 21:58:34] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 21:58:34] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 21:58:34] ❌ Error en agendamiento - ID Party: 488363 - Respuesta: {"error":"No se pudo generar cita","info":"No se agendo. Cupos Agotados","idappointment":0,"statuscode":400}
+[2025-11-18 21:58:34] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 21:58:34] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2191,"statuscode":200}
+[2025-11-18 21:58:36] Monitor detenido por el usuario

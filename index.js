@@ -11,9 +11,19 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// ⚠️ MODO TEST - Cambia esto para testing/producción
+const TEST_MODE = false; // true para testing, false para producción
+
 // Configuración INICIAL
 const CONFIG = {
-  targetUrl: 'https://www.italcambio.com/appointmentAPI/public/exchange/availaptmentbyhour.php',
+  targetUrl: TEST_MODE 
+    ? 'http://localhost:3001/appointmentAPI/public/exchange/availaptmentbyhour.php'
+    : 'https://www.italcambio.com/appointmentAPI/public/exchange/availaptmentbyhour.php',
+  
+  appointmentUrl: TEST_MODE
+    ? 'http://localhost:3001/appointmentAPI/public/exchange/appointment.php'
+    : 'https://www.italcambio.com/appointmentAPI/public/exchange/appointment.php',
+  
   requestBody: {
     idlocation: 12,
     date: '15/11/2025'
@@ -35,7 +45,16 @@ let state = {
   startTime: new Date(),
   totalRequests: 0,
   totalChanges: 0,
-  currentConfig: { ...CONFIG.requestBody } // Configuración actual
+  currentConfig: { ...CONFIG.requestBody }, // Configuración actual
+  autoBooking: {
+    enabled: false,
+    minHour: "09:00", // Hora mínima para agendar
+    idParties: [], // Array de idparty
+    cookies: [], // Array de cookies
+    currentPartyIndex: 0,
+    currentCookieIndex: 0,
+    bookedAppointments: [] // Citas agendadas exitosamente
+  }
 };
 
 // Función para escribir en el archivo de log
@@ -69,6 +88,156 @@ function readLogs(limit = 100) {
     return lines.slice(-limit).reverse(); // Últimas líneas primero
   } catch (error) {
     return [`Error leyendo logs: ${error.message}`];
+  }
+}
+
+// Función para convertir hora de 12h a 24h
+function convertTo24Hour(time12h) {
+  const [time, modifier] = time12h.split(' ');
+  let [hours, minutes] = time.split(':');
+  
+  if (hours === '12') {
+    hours = '00';
+  }
+  
+  if (modifier === 'PM') {
+    hours = parseInt(hours, 10) + 12;
+  }
+  
+  return `${hours.toString().padStart(2, '0')}:${minutes}`;
+}
+
+// Función para verificar si la hora es mayor o igual a la hora mínima
+function isTimeValid(hora12h, minHour) {
+  try {
+    const hora24h = convertTo24Hour(hora12h);
+    return hora24h >= minHour;
+  } catch (error) {
+    return false;
+  }
+}
+
+// Función para hacer el agendamiento automático
+async function makeAppointment(schedule, idparty, cookie) {
+  try {
+    const appointmentData = {
+      date: state.currentConfig.date,
+      idparty: idparty,
+      idschedule: schedule.idschedule,
+      status: 1,
+      idappointmenttype: 1
+    };
+
+    const headers = {
+      'Accept-Encoding': 'gzip, deflate, br, zstd',
+      'Accept-Language': 'en-US,en;q=0.9,es-419;q=0.8,es;q=0.7,pt;q=0.6',
+      'Cache-Control': 'no-cache',
+      'Content-Type': 'text/plain;charset=UTF-8',
+      'Content-Length': Buffer.byteLength(requestBody), // ← NUEVO
+      'Accept': '*/*', // ← NUEVO
+      'Connection': 'keep-alive', // ← NUEVO
+      'Cookie': cookie,
+      'Dnt': '1',
+      'Host': 'www.italcambio.com',
+      'Origin': 'https://www.italcambio.com',
+      'Pragma': 'no-cache',
+      'Referer': 'https://www.italcambio.com/appointment/application',
+      'Sec-Ch-Ua': '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+      'Sec-Ch-Ua-Mobile': '?0',
+      'Sec-Ch-Ua-Platform': '"Windows"',
+      'Sec-Fetch-Site': 'same-origin',
+      'Sec-Fetch-Dest': 'empty',
+      'Sec-Fetch-Mode': 'cors',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
+    };
+
+    writeToLog(`📝 Intentando agendar cita para idparty: ${idparty} a las ${schedule.hora}`);
+
+    const response = await axios.post(CONFIG.appointmentUrl, appointmentData, {
+      headers: headers,
+      timeout: 10000
+    });
+
+    if (response.data && response.data.success) {
+      const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${idparty} - Hora: ${schedule.hora} - ID Schedule: ${schedule.idschedule}`;
+      writeToLog(successMessage);
+      
+      // Guardar en estado
+      state.autoBooking.bookedAppointments.push({
+        idparty: idparty,
+        hora: schedule.hora,
+        idschedule: schedule.idschedule,
+        fecha: state.currentConfig.date,
+        timestamp: getVenezuelaTime()
+      });
+      
+      return true;
+    } else {
+      const errorMessage = `❌ Error en agendamiento - ID Party: ${idparty} - Respuesta: ${JSON.stringify(response.data)}`;
+      writeToLog(errorMessage);
+      return false;
+    }
+    
+  } catch (error) {
+    const errorMessage = `❌ Error en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
+    writeToLog(errorMessage);
+    return false;
+  }
+}
+
+// Función para procesar disponibilidad y agendar
+async function processAvailability(responseData) {
+  if (!state.autoBooking.enabled || !Array.isArray(responseData)) {
+    return;
+  }
+
+  // Filtrar horarios válidos (mayores o iguales a la hora mínima)
+  const validSchedules = responseData.filter(schedule => 
+    schedule.idschedule && 
+    schedule.hora && 
+    isTimeValid(schedule.hora, state.autoBooking.minHour)
+  );
+
+  if (validSchedules.length === 0) {
+    writeToLog(`⏰ Horarios disponibles no cumplen con la hora mínima (${state.autoBooking.minHour})`);
+    return;
+  }
+
+  writeToLog(`🎯 ${validSchedules.length} horario(s) válido(s) encontrado(s) para agendamiento`);
+
+  // Intentar agendar para cada idparty disponible
+  for (let i = 0; i < state.autoBooking.idParties.length; i++) {
+    const idparty = state.autoBooking.idParties[i];
+    const cookie = state.autoBooking.cookies[state.autoBooking.currentCookieIndex] || 
+                   (state.autoBooking.cookies.length > 0 ? state.autoBooking.cookies[0] : '');
+
+    if (!idparty || !cookie) {
+      continue;
+    }
+
+    // Intentar con el primer horario disponible
+    const schedule = validSchedules[0];
+    const success = await makeAppointment(schedule, idparty, cookie);
+
+    if (success) {
+      // Remover idparty exitoso del array
+      state.autoBooking.idParties.splice(i, 1);
+      i--; // Ajustar índice después de remover
+
+      // Rotar cookie para el próximo
+      state.autoBooking.currentCookieIndex = 
+        (state.autoBooking.currentCookieIndex + 1) % state.autoBooking.cookies.length;
+
+      // Si no quedan más idparties, desactivar auto-booking
+      if (state.autoBooking.idParties.length === 0) {
+        writeToLog('🏁 Todos los idparties han sido agendados. Auto-booking desactivado.');
+        state.autoBooking.enabled = false;
+        break;
+      }
+    }
+
+    // Pequeña pausa entre intentos
+    await new Promise(resolve => setTimeout(resolve, 100));
   }
 }
 
@@ -111,12 +280,17 @@ async function makeRequest() {
       state.lastDifferentResponse = response.data;
       state.lastDifferentResponseTime = venezuelaTime;
       state.hourWithoutChanges = false;
+
+      // Procesar disponibilidad para auto-booking
+      if (Array.isArray(response.data)) {
+        await processAvailability(response.data);
+      }
     }
     
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
-    // Solo loguear errores que NO sean 400
-    if (!error.message.includes('404') && !error.message.includes('Bad Request')) {
+    // Solo loguear errores que NO sean 400/404
+    if (!error.message.includes('400') && !error.message.includes('404') && !error.message.includes('Bad Request')) {
       const errorMessage = `❌ ERROR: ${error.message}`;
       writeToLog(errorMessage);
     }
@@ -191,7 +365,7 @@ app.get('/', (req, res) => {
             background-color: #f5f5f5;
         }
         .container { 
-            max-width: 1200px; 
+            max-width: 1400px; 
             margin: 0 auto; 
             background: white; 
             padding: 20px; 
@@ -212,12 +386,26 @@ app.get('/', (req, res) => {
             margin-bottom: 20px;
             border-left: 4px solid #ffc107;
         }
+        .success { 
+            background: #d4edda; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px;
+            border-left: 4px solid #28a745;
+        }
         .config-form {
             background: #e3f2fd;
             padding: 20px;
             border-radius: 5px;
             margin-bottom: 20px;
             border-left: 4px solid #2196F3;
+        }
+        .auto-booking-form {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #FF9800;
         }
         .form-group {
             margin-bottom: 15px;
@@ -227,12 +415,16 @@ app.get('/', (req, res) => {
             margin-bottom: 5px;
             font-weight: bold;
         }
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
         }
         button {
             background: #2196F3;
@@ -242,10 +434,18 @@ app.get('/', (req, res) => {
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
+            margin-right: 10px;
+            margin-bottom: 5px;
         }
         button:hover {
             background: #1976D2;
         }
+        .btn-success { background: #28a745; }
+        .btn-success:hover { background: #218838; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        .btn-warning { background: #ffc107; color: #000; }
+        .btn-warning:hover { background: #e0a800; }
         .logs { 
             background: #f8f9fa; 
             padding: 15px; 
@@ -295,11 +495,47 @@ app.get('/', (req, res) => {
             margin-bottom: 10px;
             border-left: 4px solid #FF9800;
         }
+        .auto-booking-status {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+        .booked-appointments {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #28a745;
+        }
+        .appointment-item {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🚀 Monitor de Italcambio</h1>
+        
+        <!-- Controles principales -->
+        <div style="margin-bottom: 20px;">
+            ${state.isRunning ? 
+                `<form action="/stop-monitor" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-danger">⏹️ Detener Monitor</button>
+                </form>` :
+                `<form action="/start-monitor" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-success">▶️ Iniciar Monitor</button>
+                </form>`
+            }
+            <form action="/clear-counters" method="POST" style="display: inline;">
+                <button type="submit" class="btn-warning">🔄 Reiniciar Contadores</button>
+            </form>
+        </div>
         
         <!-- Formulario de Configuración -->
         <div class="config-form">
@@ -317,19 +553,68 @@ app.get('/', (req, res) => {
                     <label for="idlocation">Ubicación:</label>
                     <select id="idlocation" name="idlocation">
                         <option value="12" ${state.currentConfig.idlocation == 12 ? 'selected' : ''}>Galería Fente (12)</option>
-                        <option value="1" ${state.currentConfig.idlocation == 62 ? 'selected' : ''}>Sambil</option>
-                        <option value="2" ${state.currentConfig.idlocation == 11 ? 'selected' : ''}>Aeropuerto</option>
+                        <option value="62" ${state.currentConfig.idlocation == 62 ? 'selected' : ''}>Sambil (62)</option>
+                        <option value="11" ${state.currentConfig.idlocation == 11 ? 'selected' : ''}>Aeropuerto (11)</option>
                     </select>
                 </div>
                 <button type="submit">Actualizar Configuración</button>
             </form>
         </div>
 
+        <!-- Formulario de Auto-Booking -->
+        <div class="auto-booking-form">
+            <h3>🤖 Auto-Booking Automático</h3>
+            <form action="/update-auto-booking" method="POST">
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="enabled" ${state.autoBooking.enabled ? 'checked' : ''}>
+                        Activar Auto-Booking
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="minHour">Hora Mínima (HH:MM 24h):</label>
+                    <input type="text" id="minHour" name="minHour" 
+                           value="${state.autoBooking.minHour}" 
+                           placeholder="09:00" pattern="[0-9]{2}:[0-9]{2}">
+                    <small>Formato 24h (ej: 09:00, 13:30)</small>
+                </div>
+                <div class="form-group">
+                    <label for="idParties">ID Parties (uno por línea):</label>
+                    <textarea id="idParties" name="idParties" placeholder="Ejemplo:&#10;12345&#10;67890">${state.autoBooking.idParties.join('\n')}</textarea>
+                    <small>Ingresa uno o más ID Parties, uno por línea</small>
+                </div>
+                <div class="form-group">
+                    <label for="cookies">Cookies (una por línea):</label>
+                    <textarea id="cookies" name="cookies" placeholder="Ejemplo:&#10;PHPSESSID=abc123...&#10;PHPSESSID=def456...">${state.autoBooking.cookies.join('\n')}</textarea>
+                    <small>Ingresa una o más cookies de sesión, una por línea</small>
+                </div>
+                <button type="submit" class="btn-success">💾 Guardar Configuración Auto-Booking</button>
+            </form>
+        </div>
+
         <div class="current-config">
             <strong>📋 Configuración Actual:</strong><br>
             <strong>Ubicación:</strong> ${state.currentConfig.idlocation} | 
-            <strong>Fecha:</strong> ${state.currentConfig.date}
+            <strong>Fecha:</strong> ${state.currentConfig.date} |
+            <strong>Auto-Booking:</strong> ${state.autoBooking.enabled ? '🟢 ACTIVADO' : '🔴 DESACTIVADO'} |
+            <strong>Hora Mínima:</strong> ${state.autoBooking.minHour} |
+            <strong>ID Parties Restantes:</strong> ${state.autoBooking.idParties.length} |
+            <strong>Cookies Disponibles:</strong> ${state.autoBooking.cookies.length}
         </div>
+        
+        ${state.autoBooking.bookedAppointments.length > 0 ? `
+        <div class="booked-appointments">
+            <h3>✅ Citas Agendadas Exitosamente</h3>
+            ${state.autoBooking.bookedAppointments.map(appt => `
+                <div class="appointment-item">
+                    <strong>ID Party:</strong> ${appt.idparty} | 
+                    <strong>Fecha:</strong> ${appt.fecha} | 
+                    <strong>Hora:</strong> ${appt.hora} |
+                    <strong>Agendado:</strong> ${appt.timestamp}
+                </div>
+            `).join('')}
+        </div>
+        ` : ''}
         
         <div class="stats">
             <div class="stat-card">
@@ -341,12 +626,12 @@ app.get('/', (req, res) => {
                 <div>Cambios Detectados</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">${hours}h ${minutes}m ${seconds}s</div>
-                <div>Tiempo Activo</div>
+                <div class="stat-number">${state.autoBooking.bookedAppointments.length}</div>
+                <div>Citas Agendadas</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">${state.isRunning ? '🟢 Activo' : '🔴 Detenido'}</div>
-                <div>Estado</div>
+                <div class="stat-number">${hours}h ${minutes}m ${seconds}s</div>
+                <div>Tiempo Activo</div>
             </div>
         </div>
         
@@ -371,6 +656,8 @@ app.get('/', (req, res) => {
                 if (log.includes('🚨') || log.includes('RESPUESTA DIFERENTE')) cssClass = 'log-success';
                 if (log.includes('❌') || log.includes('ERROR')) cssClass = 'log-error';
                 if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
+                if (log.includes('✅') || log.includes('CITA AGENDADA')) cssClass = 'log-success';
+                if (log.includes('📝') || log.includes('Intentando agendar')) cssClass = 'log-info';
                 
                 return `<div class="log-entry ${cssClass}">${log}</div>`;
             }).join('')}
@@ -423,6 +710,70 @@ app.post('/update-config', (req, res) => {
   res.redirect('/?success=Configuración actualizada correctamente');
 });
 
+// Ruta para actualizar auto-booking
+app.post('/update-auto-booking', (req, res) => {
+  const { enabled, minHour, idParties, cookies } = req.body;
+  
+  state.autoBooking.enabled = enabled === 'on';
+  state.autoBooking.minHour = minHour || "09:00";
+  
+  // Procesar idParties
+  state.autoBooking.idParties = idParties
+    ? idParties.split('\n').map(party => party.trim()).filter(party => party !== '')
+    : [];
+  
+  // Procesar cookies
+  state.autoBooking.cookies = cookies
+    ? cookies.split('\n').map(cookie => cookie.trim()).filter(cookie => cookie !== '')
+    : [];
+  
+  // Reiniciar índices
+  state.autoBooking.currentPartyIndex = 0;
+  state.autoBooking.currentCookieIndex = 0;
+  
+  const statusMessage = state.autoBooking.enabled ? 'activado' : 'desactivado';
+  const changeMessage = `⚙️ AUTO-BOOKING ${statusMessage.toUpperCase()} - Hora mínima: ${state.autoBooking.minHour} - ID Parties: ${state.autoBooking.idParties.length} - Cookies: ${state.autoBooking.cookies.length}`;
+  writeToLog(changeMessage);
+  
+  res.redirect('/?success=Configuración de auto-booking actualizada');
+});
+
+// Ruta para detener monitor
+app.post('/stop-monitor', (req, res) => {
+  state.isRunning = false;
+  writeToLog('⏹️ MONITOR DETENIDO MANUALMENTE');
+  res.redirect('/?success=Monitor detenido');
+});
+
+// Ruta para iniciar monitor
+app.post('/start-monitor', (req, res) => {
+  state.isRunning = true;
+  writeToLog('▶️ MONITOR INICIADO MANUALMENTE');
+  
+  // Reiniciar el bucle de monitoreo si no está corriendo
+  if (!state.monitorRunning) {
+    startMonitor().catch(error => {
+      console.error('Error al reiniciar monitor:', error);
+    });
+  }
+  
+  res.redirect('/?success=Monitor iniciado');
+});
+
+// Ruta para reiniciar contadores
+app.post('/clear-counters', (req, res) => {
+  state.totalRequests = 0;
+  state.totalChanges = 0;
+  state.requestCount = 0;
+  state.lastDifferentResponse = null;
+  state.lastDifferentResponseTime = null;
+  state.autoBooking.bookedAppointments = [];
+  
+  writeToLog('🔄 CONTADORES REINICIADOS MANUALMENTE');
+  res.redirect('/?success=Contadores reiniciados');
+});
+
+// APIs
 app.get('/api/status', (req, res) => {
   res.json({
     status: state.isRunning ? 'running' : 'stopped',
@@ -432,6 +783,7 @@ app.get('/api/status', (req, res) => {
     lastChange: state.lastDifferentResponseTime,
     lastResponse: state.lastDifferentResponse,
     currentConfig: state.currentConfig,
+    autoBooking: state.autoBooking,
     uptime: Date.now() - state.startTime
   });
 });
@@ -480,6 +832,9 @@ app.listen(PORT, () => {
   console.log(`🌐 Servidor web corriendo en puerto ${PORT}`);
   console.log(`📊 Dashboard disponible en: http://localhost:${PORT}`);
   
+  // Marcar que el monitor está corriendo
+  state.monitorRunning = true;
+  
   // Iniciar el monitor después de que Express esté listo
   startMonitor().catch(error => {
     console.error('Error fatal en el monitor:', error);
@@ -491,6 +846,7 @@ app.listen(PORT, () => {
 process.on('SIGINT', () => {
   console.log('\n🛑 Deteniendo monitor...');
   state.isRunning = false;
+  state.monitorRunning = false;
   writeToLog('Monitor detenido por el usuario');
   setTimeout(() => {
     process.exit(0);
@@ -500,6 +856,7 @@ process.on('SIGINT', () => {
 process.on('SIGTERM', () => {
   console.log('\n🛑 Monitor detenido por el sistema');
   state.isRunning = false;
+  state.monitorRunning = false;
   writeToLog('Monitor detenido por el sistema');
   setTimeout(() => {
     process.exit(0);
