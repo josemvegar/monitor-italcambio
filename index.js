@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ⚠️ MODO TEST - Cambia esto para testing/producción
-const TEST_MODE = false; // true para testing, false para producción
+const TEST_MODE = true; // true para testing, false para producción
 
 // Configuración INICIAL
 const CONFIG = {
@@ -128,6 +128,8 @@ async function makeAppointment(schedule, idparty, cookie) {
       idappointmenttype: 1
     };
 
+    const requestBody = JSON.stringify(appointmentData); // ← Ya está definido aquí
+    
     const headers = {
       'Accept-Encoding': 'gzip, deflate, br, zstd',
       'Accept-Language': 'en-US,en;q=0.9,es-419;q=0.8,es;q=0.7,pt;q=0.6',
@@ -155,10 +157,10 @@ async function makeAppointment(schedule, idparty, cookie) {
 
     const response = await axios.post(CONFIG.appointmentUrl, appointmentData, {
       headers: headers,
-      timeout: 10000
+      timeout: 30000
     });
 
-    if (response.data && response.data.success) {
+    if (response.data && response.data.message && response.data.message.includes('Cita generada exitosamente')) {
       const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${idparty} - Hora: ${schedule.hora} - ID Schedule: ${schedule.idschedule}`;
       writeToLog(successMessage);
       
@@ -246,12 +248,17 @@ async function makeRequest() {
   if (!state.isRunning) return;
 
   try {
+    const requestBody = JSON.stringify(state.currentConfig); // ← Esto es lo que falta
+    
     const response = await axios.post(CONFIG.targetUrl, state.currentConfig, {
       headers: {
         'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(requestBody), // ← Ahora requestBody está definido
+        'Accept': '*/*',
+        'Connection': 'keep-alive',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
       },
-      timeout: 10000
+      timeout: 30000
     });
 
     state.requestCount++;

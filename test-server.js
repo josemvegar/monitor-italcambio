@@ -79,14 +79,14 @@ app.post('/appointmentAPI/public/exchange/appointment.php', (req, res) => {
     console.log('✅ SIMULANDO AGENDAMIENTO EXITOSO');
   }
   else if (testMode === 'booking-failed') {
-    responseData = {
-      "error": "No se pudo generar cita",
-      "info": "No se agendo. Cupos Agotados",
-      "idappointment": 0,
-      "statuscode": 400
-    };
-    console.log('❌ SIMULANDO AGENDAMIENTO FALLIDO');
-  }
+  // En modo booking-failed, SIEMPRE dar disponibilidad pero el agendamiento falla
+  responseData = [
+    {"idschedule":36523,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":2},
+    {"idschedule":36524,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":2},
+    {"idschedule":36525,"idfecha":"19/11/2025","hora":"10:00 AM","capacidaddisponible":2}
+  ];
+  console.log(`🎯 [DISPO] Forzando disponibilidad para testing de errores`);
+}
   else if (testMode === 'random') {
     if (Math.random() > 0.3) {
       responseData = {

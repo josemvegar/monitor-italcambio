@@ -691,3 +691,584 @@
 [2025-11-18 21:58:34] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
 [2025-11-18 21:58:34] ❌ Error en agendamiento - ID Party: 1347643 - Respuesta: {"message":"Cita generada exitosamente","info":"OK","idappointment":2191,"statuscode":200}
 [2025-11-18 21:58:36] Monitor detenido por el usuario
+[2025-11-18 22:15:39] 🚀 Iniciando monitor de Italcambio...
+📍 Ubicación: 12
+📅 Fecha: 15/11/2025
+⏰ Zona horaria: America/Caracas
+🔁 Intervalo de verificación: 1000 ms
+📝 Log cada: 60 minutos
+==================================================
+[2025-11-18 22:15:39] ❌ ERROR: Error
+[2025-11-18 22:15:40] ❌ ERROR: Error
+[2025-11-18 22:15:41] ❌ ERROR: Error
+[2025-11-18 22:15:42] ❌ ERROR: Error
+[2025-11-18 22:15:43] ❌ ERROR: Error
+[2025-11-18 22:15:44] ❌ ERROR: Error
+[2025-11-18 22:15:45] ❌ ERROR: Error
+[2025-11-18 22:15:46] ❌ ERROR: Error
+[2025-11-18 22:15:47] ❌ ERROR: Error
+[2025-11-18 22:15:53] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:15:53
+[2025-11-18 22:15:53] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:15:53] 📦 Respuesta: [{"idschedule":36528,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36529,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:15:53] ---
+[2025-11-18 22:15:58] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:15:58
+[2025-11-18 22:15:58] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:15:58] 📦 Respuesta: [{"idschedule":36533,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36534,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:15:58] ---
+[2025-11-18 22:16:03] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:03
+[2025-11-18 22:16:03] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:03] 📦 Respuesta: [{"idschedule":36538,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36539,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:03] ---
+[2025-11-18 22:16:08] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:08
+[2025-11-18 22:16:08] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:08] 📦 Respuesta: [{"idschedule":36543,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36544,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:08] ---
+[2025-11-18 22:16:13] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:13
+[2025-11-18 22:16:13] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:13] 📦 Respuesta: [{"idschedule":36548,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36549,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:13] ---
+[2025-11-18 22:16:14] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 0
+[2025-11-18 22:16:18] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:18
+[2025-11-18 22:16:18] 📦 Respuesta: [{"idschedule":36553,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36554,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:18] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:18] ---
+[2025-11-18 22:16:20] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:16:23] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:23
+[2025-11-18 22:16:23] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:23] 📦 Respuesta: [{"idschedule":36558,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36559,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:23] ---
+[2025-11-18 22:16:23] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:16:28] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:28
+[2025-11-18 22:16:28] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:28] 📦 Respuesta: [{"idschedule":36563,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36564,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:28] ---
+[2025-11-18 22:16:28] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:16:28] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:16:28] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:16:33] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:33
+[2025-11-18 22:16:33] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:33] 📦 Respuesta: [{"idschedule":36568,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36569,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:33] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:16:33] ---
+[2025-11-18 22:16:33] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:16:34] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:16:39] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:39
+[2025-11-18 22:16:39] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:39] 📦 Respuesta: [{"idschedule":36573,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36574,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:39] ---
+[2025-11-18 22:16:39] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:16:39] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:16:39] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:16:44] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:44
+[2025-11-18 22:16:44] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:44] 📦 Respuesta: [{"idschedule":36578,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36579,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:44] ---
+[2025-11-18 22:16:44] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:16:44] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:16:44] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:16:49] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:49
+[2025-11-18 22:16:49] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:49] 📦 Respuesta: [{"idschedule":36583,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36584,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:49] ---
+[2025-11-18 22:16:49] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:16:49] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:16:49] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:16:55] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:16:55
+[2025-11-18 22:16:55] 📦 Respuesta: [{"idschedule":36588,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36589,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:16:55] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:16:55] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:16:55] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:16:55] ---
+[2025-11-18 22:16:55] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:00] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:00
+[2025-11-18 22:17:00] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:00] 📦 Respuesta: [{"idschedule":36593,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36594,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:00] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:00] ---
+[2025-11-18 22:17:00] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:00] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:06] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:06
+[2025-11-18 22:17:06] 📦 Respuesta: [{"idschedule":36598,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36599,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:06] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:06] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:06] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:06] ---
+[2025-11-18 22:17:06] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:11] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:11
+[2025-11-18 22:17:11] 📦 Respuesta: [{"idschedule":36603,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36604,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:11] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:11] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:11] ---
+[2025-11-18 22:17:11] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:11] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:16] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:16
+[2025-11-18 22:17:16] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:16] ---
+[2025-11-18 22:17:16] 📦 Respuesta: [{"idschedule":36608,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36609,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:16] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:16] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:16] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:21] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:21
+[2025-11-18 22:17:22] 📦 Respuesta: [{"idschedule":36613,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36614,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:22] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:22] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:21] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:22] ---
+[2025-11-18 22:17:22] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:27] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:27
+[2025-11-18 22:17:27] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:27] 📦 Respuesta: [{"idschedule":36618,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36619,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:27] ---
+[2025-11-18 22:17:27] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:27] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:27] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:32] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:32
+[2025-11-18 22:17:32] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:32] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:32] 📦 Respuesta: [{"idschedule":36623,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36624,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:32] ---
+[2025-11-18 22:17:32] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:32] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:37] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:37
+[2025-11-18 22:17:37] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:37] 📦 Respuesta: [{"idschedule":36628,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36629,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:37] ---
+[2025-11-18 22:17:37] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:37] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:37] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:43] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:43
+[2025-11-18 22:17:43] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:43] 📦 Respuesta: [{"idschedule":36633,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36634,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:43] ---
+[2025-11-18 22:17:43] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:43] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:43] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:48] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:48
+[2025-11-18 22:17:48] 📦 Respuesta: [{"idschedule":36638,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36639,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:48] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:48] ---
+[2025-11-18 22:17:48] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:48] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:48] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:53] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:53
+[2025-11-18 22:17:53] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:53] 📦 Respuesta: [{"idschedule":36643,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36644,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:53] ---
+[2025-11-18 22:17:53] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:53] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:53] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:17:59] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:17:59
+[2025-11-18 22:17:59] 📦 Respuesta: [{"idschedule":36648,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36649,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:17:59] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:17:59] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:17:59] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:17:59] ---
+[2025-11-18 22:17:59] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:04] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:04
+[2025-11-18 22:18:04] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:04] 📦 Respuesta: [{"idschedule":36653,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36654,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:04] ---
+[2025-11-18 22:18:04] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:04] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:04] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:09] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:09
+[2025-11-18 22:18:09] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:09] 📦 Respuesta: [{"idschedule":36658,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36659,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:09] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:09] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:09] ---
+[2025-11-18 22:18:09] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:14] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:14
+[2025-11-18 22:18:14] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:14] 📦 Respuesta: [{"idschedule":36663,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36664,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:14] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:14] ---
+[2025-11-18 22:18:14] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:15] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:20] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:20
+[2025-11-18 22:18:20] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:20] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:20] 📦 Respuesta: [{"idschedule":36668,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36669,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:20] ---
+[2025-11-18 22:18:20] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:20] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:25] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:25
+[2025-11-18 22:18:25] 📦 Respuesta: [{"idschedule":36673,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36674,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:25] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:25] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:25] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:25] ---
+[2025-11-18 22:18:25] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:30] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:30
+[2025-11-18 22:18:30] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:30] 📦 Respuesta: [{"idschedule":36678,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36679,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:30] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:30] ---
+[2025-11-18 22:18:30] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:30] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:36] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:36
+[2025-11-18 22:18:36] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:36] 📦 Respuesta: [{"idschedule":36683,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36684,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:36] ---
+[2025-11-18 22:18:36] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:36] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:36] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:41] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:41
+[2025-11-18 22:18:41] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:41] 📦 Respuesta: [{"idschedule":36688,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36689,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:41] ---
+[2025-11-18 22:18:41] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:41] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:41] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:46] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:46
+[2025-11-18 22:18:46] 📦 Respuesta: [{"idschedule":36693,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36694,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:46] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:46] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:46] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:46] ---
+[2025-11-18 22:18:46] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:51] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:51
+[2025-11-18 22:18:51] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:51] 📦 Respuesta: [{"idschedule":36698,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36699,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:51] ---
+[2025-11-18 22:18:51] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:51] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:52] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:18:57] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:18:57
+[2025-11-18 22:18:57] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:18:57] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:18:57] 📦 Respuesta: [{"idschedule":36703,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36704,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:18:57] ---
+[2025-11-18 22:18:57] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:18:57] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:02] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:02
+[2025-11-18 22:19:02] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:02] 📦 Respuesta: [{"idschedule":36708,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36709,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:02] ---
+[2025-11-18 22:19:02] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:02] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:02] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:07] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:07
+[2025-11-18 22:19:07] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:07] 📦 Respuesta: [{"idschedule":36713,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36714,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:07] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:07] ---
+[2025-11-18 22:19:07] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:08] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:13] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:13
+[2025-11-18 22:19:13] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:13] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:13] 📦 Respuesta: [{"idschedule":36718,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36719,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:13] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:13] ---
+[2025-11-18 22:19:13] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:18] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:18
+[2025-11-18 22:19:18] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:18] 📦 Respuesta: [{"idschedule":36723,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36724,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:18] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:18] ---
+[2025-11-18 22:19:18] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:18] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:23] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:23
+[2025-11-18 22:19:23] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:23] 📦 Respuesta: [{"idschedule":36728,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36729,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:23] ---
+[2025-11-18 22:19:23] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:23] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:23] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:29] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:29
+[2025-11-18 22:19:29] 📦 Respuesta: [{"idschedule":36733,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36734,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:29] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:29] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:29] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:29] ---
+[2025-11-18 22:19:29] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:34] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:34
+[2025-11-18 22:19:34] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:34] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:34] ---
+[2025-11-18 22:19:34] 📦 Respuesta: [{"idschedule":36738,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36739,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:34] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:34] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:40] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:40
+[2025-11-18 22:19:40] ---
+[2025-11-18 22:19:40] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:40] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:40] 📦 Respuesta: [{"idschedule":36743,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36744,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:40] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:40] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:45] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:45
+[2025-11-18 22:19:45] 📦 Respuesta: [{"idschedule":36748,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36749,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:45] ---
+[2025-11-18 22:19:45] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:45] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:45] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:45] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:50] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:50
+[2025-11-18 22:19:50] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:50] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:50] 📦 Respuesta: [{"idschedule":36753,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36754,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:50] ---
+[2025-11-18 22:19:50] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:50] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:19:56] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:19:56
+[2025-11-18 22:19:56] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:19:56] 📦 Respuesta: [{"idschedule":36758,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36759,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:19:56] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:19:56] ---
+[2025-11-18 22:19:56] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:19:56] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:20:01] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:01
+[2025-11-18 22:20:01] 📦 Respuesta: [{"idschedule":36763,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36764,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:01] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:01] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:20:01] ---
+[2025-11-18 22:20:01] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:20:01] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:20:06] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:06] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:06
+[2025-11-18 22:20:06] 📦 Respuesta: [{"idschedule":36768,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36769,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:06] ---
+[2025-11-18 22:20:06] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:20:06] ❌ Error en agendamiento - ID Party: 488363 - Error: requestBody is not defined
+[2025-11-18 22:20:06] ❌ Error en agendamiento - ID Party: 1347643 - Error: requestBody is not defined
+[2025-11-18 22:20:10] ❌ ERROR: Error
+[2025-11-18 22:20:11] ❌ ERROR: Error
+[2025-11-18 22:20:12] Monitor detenido por el usuario
+[2025-11-18 22:20:15] 🚀 Iniciando monitor de Italcambio...
+📍 Ubicación: 12
+📅 Fecha: 15/11/2025
+⏰ Zona horaria: America/Caracas
+🔁 Intervalo de verificación: 1000 ms
+📝 Log cada: 60 minutos
+==================================================
+[2025-11-18 22:20:15] ❌ ERROR: Error
+[2025-11-18 22:20:16] ❌ ERROR: Error
+[2025-11-18 22:20:17] ❌ ERROR: Error
+[2025-11-18 22:20:22] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:22
+[2025-11-18 22:20:22] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:22] ---
+[2025-11-18 22:20:22] 📦 Respuesta: [{"idschedule":36528,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36529,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:28] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:28
+[2025-11-18 22:20:28] 📦 Respuesta: [{"idschedule":36533,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36534,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:28] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:28] ---
+[2025-11-18 22:20:33] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:33
+[2025-11-18 22:20:33] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:33] 📦 Respuesta: [{"idschedule":36538,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36539,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:33] ---
+[2025-11-18 22:20:38] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:38
+[2025-11-18 22:20:38] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:38] 📦 Respuesta: [{"idschedule":36543,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36544,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:38] ---
+[2025-11-18 22:20:43] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:43
+[2025-11-18 22:20:43] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:43] 📦 Respuesta: [{"idschedule":36548,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36549,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:43] ---
+[2025-11-18 22:20:48] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:48
+[2025-11-18 22:20:48] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:48] 📦 Respuesta: [{"idschedule":36553,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36554,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:48] ---
+[2025-11-18 22:20:53] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:53
+[2025-11-18 22:20:53] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:53] 📦 Respuesta: [{"idschedule":36558,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36559,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:53] ---
+[2025-11-18 22:20:58] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:20:58
+[2025-11-18 22:20:58] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:20:58] 📦 Respuesta: [{"idschedule":36563,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36564,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:20:58] ---
+[2025-11-18 22:21:03] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:03
+[2025-11-18 22:21:03] 📦 Respuesta: [{"idschedule":36568,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36569,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:03] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:03] ---
+[2025-11-18 22:21:08] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:08
+[2025-11-18 22:21:08] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:08] 📦 Respuesta: [{"idschedule":36573,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36574,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:08] ---
+[2025-11-18 22:21:13] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:13
+[2025-11-18 22:21:13] 📦 Respuesta: [{"idschedule":36578,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36579,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:13] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:13] ---
+[2025-11-18 22:21:18] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 0
+[2025-11-18 22:21:18] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:18
+[2025-11-18 22:21:18] 📦 Respuesta: [{"idschedule":36583,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36584,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:18] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:18] ---
+[2025-11-18 22:21:23] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:21:24] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:24
+[2025-11-18 22:21:24] 📦 Respuesta: [{"idschedule":36588,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36589,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:24] ---
+[2025-11-18 22:21:24] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:25] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:21:29] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:29
+[2025-11-18 22:21:29] ---
+[2025-11-18 22:21:29] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:21:29] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 22:21:29] 📦 Respuesta: [{"idschedule":36593,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36594,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:29] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:29] ✅ CITA AGENDADA EXITOSAMENTE - ID Party: 488363 - Hora: 09:00 AM - ID Schedule: 36594
+[2025-11-18 22:21:29] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 22:21:29] ✅ CITA AGENDADA EXITOSAMENTE - ID Party: 1347643 - Hora: 09:00 AM - ID Schedule: 36594
+[2025-11-18 22:21:29] 🏁 Todos los idparties han sido agendados. Auto-booking desactivado.
+[2025-11-18 22:21:34] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:34
+[2025-11-18 22:21:34] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:34] 📦 Respuesta: [{"idschedule":36598,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36599,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:34] ---
+[2025-11-18 22:21:39] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:39
+[2025-11-18 22:21:39] 📦 Respuesta: [{"idschedule":36603,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36604,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:39] ---
+[2025-11-18 22:21:39] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:44] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:44
+[2025-11-18 22:21:44] 📦 Respuesta: [{"idschedule":36608,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36609,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:44] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:44] ---
+[2025-11-18 22:21:49] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:49
+[2025-11-18 22:21:49] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:49] 📦 Respuesta: [{"idschedule":36613,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36614,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:49] ---
+[2025-11-18 22:21:54] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:54
+[2025-11-18 22:21:54] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:54] ---
+[2025-11-18 22:21:54] 📦 Respuesta: [{"idschedule":36618,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36619,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:59] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:21:59
+[2025-11-18 22:21:59] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:21:59] 📦 Respuesta: [{"idschedule":36623,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36624,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:21:59] ---
+[2025-11-18 22:22:04] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:04
+[2025-11-18 22:22:04] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:04] 📦 Respuesta: [{"idschedule":36628,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36629,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:04] ---
+[2025-11-18 22:22:09] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:09
+[2025-11-18 22:22:09] 📦 Respuesta: [{"idschedule":36633,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36634,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:09] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:09] ---
+[2025-11-18 22:22:14] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:14
+[2025-11-18 22:22:14] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:14] 📦 Respuesta: [{"idschedule":36638,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36639,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:14] ---
+[2025-11-18 22:22:19] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:19
+[2025-11-18 22:22:19] 📦 Respuesta: [{"idschedule":36643,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36644,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:19] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:19] ---
+[2025-11-18 22:22:25] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:25
+[2025-11-18 22:22:25] 📦 Respuesta: [{"idschedule":36648,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36649,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:25] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:25] ---
+[2025-11-18 22:22:30] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:30] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:30
+[2025-11-18 22:22:30] 📦 Respuesta: [{"idschedule":36653,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36654,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:30] ---
+[2025-11-18 22:22:35] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:35
+[2025-11-18 22:22:35] 📦 Respuesta: [{"idschedule":36658,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36659,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:35] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:35] ---
+[2025-11-18 22:22:40] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:40
+[2025-11-18 22:22:40] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:40] 📦 Respuesta: [{"idschedule":36663,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36664,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:40] ---
+[2025-11-18 22:22:45] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:45
+[2025-11-18 22:22:45] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:45] 📦 Respuesta: [{"idschedule":36668,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36669,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:45] ---
+[2025-11-18 22:22:50] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:50
+[2025-11-18 22:22:50] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:22:50] 📦 Respuesta: [{"idschedule":36673,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36674,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:50] ---
+[2025-11-18 22:22:55] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:22:55
+[2025-11-18 22:22:55] 📦 Respuesta: [{"idschedule":36678,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36679,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:22:55] ---
+[2025-11-18 22:22:55] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:00] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:00
+[2025-11-18 22:23:00] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:00] 📦 Respuesta: [{"idschedule":36683,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36684,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:00] ---
+[2025-11-18 22:23:00] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:23:03] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:23:05] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:05
+[2025-11-18 22:23:05] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:05] 📦 Respuesta: [{"idschedule":36688,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36689,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:05] ---
+[2025-11-18 22:23:05] 🎯 1 horario(s) válido(s) encontrado(s) para agendamiento
+[2025-11-18 22:23:05] 📝 Intentando agendar cita para idparty: 488363 a las 09:00 AM
+[2025-11-18 22:23:05] ✅ CITA AGENDADA EXITOSAMENTE - ID Party: 488363 - Hora: 09:00 AM - ID Schedule: 36689
+[2025-11-18 22:23:05] 📝 Intentando agendar cita para idparty: 1347643 a las 09:00 AM
+[2025-11-18 22:23:05] ✅ CITA AGENDADA EXITOSAMENTE - ID Party: 1347643 - Hora: 09:00 AM - ID Schedule: 36689
+[2025-11-18 22:23:05] 🏁 Todos los idparties han sido agendados. Auto-booking desactivado.
+[2025-11-18 22:23:10] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:10] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:10
+[2025-11-18 22:23:10] 📦 Respuesta: [{"idschedule":36693,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36694,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:10] ---
+[2025-11-18 22:23:15] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:15
+[2025-11-18 22:23:15] 📦 Respuesta: [{"idschedule":36698,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36699,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:15] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:15] ---
+[2025-11-18 22:23:20] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:20
+[2025-11-18 22:23:20] 📦 Respuesta: [{"idschedule":36703,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36704,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:20] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:20] ---
+[2025-11-18 22:23:25] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:25
+[2025-11-18 22:23:25] 📦 Respuesta: [{"idschedule":36708,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36709,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:25] ---
+[2025-11-18 22:23:25] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:31] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:31
+[2025-11-18 22:23:31] 📦 Respuesta: [{"idschedule":36713,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36714,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:31] ---
+[2025-11-18 22:23:31] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:36] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:36
+[2025-11-18 22:23:36] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:36] 📦 Respuesta: [{"idschedule":36718,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36719,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:36] ---
+[2025-11-18 22:23:41] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:41
+[2025-11-18 22:23:41] 📦 Respuesta: [{"idschedule":36723,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36724,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:41] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:41] ---
+[2025-11-18 22:23:46] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:46
+[2025-11-18 22:23:46] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:46] 📦 Respuesta: [{"idschedule":36728,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36729,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:46] ---
+[2025-11-18 22:23:51] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:51
+[2025-11-18 22:23:51] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:51] 📦 Respuesta: [{"idschedule":36733,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36734,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:51] ---
+[2025-11-18 22:23:56] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:23:56
+[2025-11-18 22:23:56] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:23:56] 📦 Respuesta: [{"idschedule":36738,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36739,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:23:56] ---
+[2025-11-18 22:24:01] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:24:01
+[2025-11-18 22:24:01] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:24:01] 📦 Respuesta: [{"idschedule":36743,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36744,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:24:01] ---
+[2025-11-18 22:24:06] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:24:06
+[2025-11-18 22:24:06] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:24:06] 📦 Respuesta: [{"idschedule":36748,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36749,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:24:06] ---
+[2025-11-18 22:24:11] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:24:11
+[2025-11-18 22:24:11] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:24:11] 📦 Respuesta: [{"idschedule":36753,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":1},{"idschedule":36754,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":1}]
+[2025-11-18 22:24:11] ---
+[2025-11-18 22:24:41] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:24:43] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties: 2 - Cookies: 2
+[2025-11-18 22:25:47] Monitor detenido por el usuario
+[2025-11-18 22:25:49] 🚀 Iniciando monitor de Italcambio...
+📍 Ubicación: 12
+📅 Fecha: 15/11/2025
+⏰ Zona horaria: America/Caracas
+🔁 Intervalo de verificación: 1000 ms
+📝 Log cada: 60 minutos
+==================================================
+[2025-11-18 22:26:34] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:26:34
+[2025-11-18 22:26:34] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:26:34] 📦 Respuesta: [{"idschedule":36523,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":2},{"idschedule":36524,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":2},{"idschedule":36525,"idfecha":"19/11/2025","hora":"10:00 AM","capacidaddisponible":2}]
+[2025-11-18 22:26:34] ---
+[2025-11-18 22:26:35] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:26:35
+[2025-11-18 22:26:35] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:26:35] 📦 Respuesta: [{"idschedule":36523,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":2},{"idschedule":36524,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":2},{"idschedule":36525,"idfecha":"19/11/2025","hora":"10:00 AM","capacidaddisponible":2}]
+[2025-11-18 22:26:35] ---
+[2025-11-18 22:26:36] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:26:36
+[2025-11-18 22:26:36] 📦 Respuesta: [{"idschedule":36523,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":2},{"idschedule":36524,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":2},{"idschedule":36525,"idfecha":"19/11/2025","hora":"10:00 AM","capacidaddisponible":2}]
+[2025-11-18 22:26:36] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:26:36] ---
+[2025-11-18 22:26:37] 🚨 RESPUESTA DIFERENTE ENCONTRADA - 2025-11-18 22:26:37
+[2025-11-18 22:26:37] 📦 Respuesta: [{"idschedule":36523,"idfecha":"19/11/2025","hora":"08:00 AM","capacidaddisponible":2},{"idschedule":36524,"idfecha":"19/11/2025","hora":"09:00 AM","capacidaddisponible":2},{"idschedule":36525,"idfecha":"19/11/2025","hora":"10:00 AM","capacidaddisponible":2}]
+[2025-11-18 22:26:37] ⚙️ Configuración: Ubicación 12, Fecha 15/11/2025
+[2025-11-18 22:26:37] ---
