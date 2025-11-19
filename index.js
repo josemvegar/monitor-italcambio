@@ -207,39 +207,35 @@ async function processAvailability(responseData) {
 
   writeToLog(`🎯 ${validSchedules.length} horario(s) válido(s) encontrado(s) para agendamiento`);
 
-  // Intentar agendar para cada idparty disponible
-  for (let i = 0; i < state.autoBooking.idParties.length; i++) {
-    const idparty = state.autoBooking.idParties[i];
-    const cookie = state.autoBooking.cookies[state.autoBooking.currentCookieIndex] || 
-                   (state.autoBooking.cookies.length > 0 ? state.autoBooking.cookies[0] : '');
-
-    if (!idparty || !cookie) {
-      continue;
-    }
+  // ✅ CORRECCIÓN: Solo agendar para el PRIMER idparty disponible
+  if (state.autoBooking.idParties.length > 0 && state.autoBooking.cookies.length > 0) {
+    const idparty = state.autoBooking.idParties[0]; // Solo el primero
+    const cookie = state.autoBooking.cookies[state.autoBooking.currentCookieIndex];
 
     // Intentar con el primer horario disponible
     const schedule = validSchedules[0];
     const success = await makeAppointment(schedule, idparty, cookie);
 
     if (success) {
-      // Remover idparty exitoso del array
-      state.autoBooking.idParties.splice(i, 1);
-      i--; // Ajustar índice después de remover
-
-      // Rotar cookie para el próximo
+      // ✅ CORRECCIÓN: Remover SOLO el idparty usado
+      state.autoBooking.idParties.shift(); // Remover el primero
+      
+      // ✅ CORRECCIÓN: Rotar cookie para el próximo
       state.autoBooking.currentCookieIndex = 
         (state.autoBooking.currentCookieIndex + 1) % state.autoBooking.cookies.length;
+
+      writeToLog(`✅ ID Party ${idparty} agendado exitosamente. Restantes: ${state.autoBooking.idParties.length}`);
 
       // Si no quedan más idparties, desactivar auto-booking
       if (state.autoBooking.idParties.length === 0) {
         writeToLog('🏁 Todos los idparties han sido agendados. Auto-booking desactivado.');
         state.autoBooking.enabled = false;
-        break;
       }
+    } else {
+      writeToLog(`❌ Falló agendamiento para ID Party ${idparty}. Se reintentará en la próxima disponibilidad.`);
     }
-
-    // Pequeña pausa entre intentos
-    await new Promise(resolve => setTimeout(resolve, 100));
+  } else {
+    writeToLog('⚠️ No hay ID Parties o Cookies configurados para auto-booking');
   }
 }
 
