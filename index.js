@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ⚠️ MODO TEST - Cambia esto para testing/producción
-const TEST_MODE = true; // true para testing, false para producción
+const TEST_MODE = false; // true para testing, false para producción
 
 // Configuración INICIAL
 const CONFIG = {
@@ -129,7 +129,7 @@ async function makeAppointment(schedule, idparty, cookie) {
     };
 
     const requestBody = JSON.stringify(appointmentData); // ← Ya está definido aquí
-    
+
     const headers = {
       'Accept-Encoding': 'gzip, deflate, br, zstd',
       'Accept-Language': 'en-US,en;q=0.9,es-419;q=0.8,es;q=0.7,pt;q=0.6',
