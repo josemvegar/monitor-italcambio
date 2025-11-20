@@ -186,11 +186,6 @@ async function makeAppointment(schedule, idparty, cookie) {
       });
       
       return true;
-    } else if (statusCode === 200 || statusCode === 201) {
-      // Status exitoso pero mensaje diferente
-      const warningMessage = `⚠️ Agendamiento con status ${statusCode} pero mensaje inesperado - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
-      writeToLog(warningMessage);
-      return false;
     } else {
       // Error real
       const errorMessage = `❌ Error en agendamiento (${statusCode}) - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
