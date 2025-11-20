@@ -117,7 +117,7 @@ function isTimeValid(hora12h, minHour) {
   }
 }
 
-// Función para hacer el agendamiento automático
+// Función para hacer el agendamiento automático (VERSIÓN MEJORADA)
 async function makeAppointment(schedule, idparty, cookie) {
   try {
     const appointmentData = {
@@ -128,16 +128,16 @@ async function makeAppointment(schedule, idparty, cookie) {
       idappointmenttype: 1
     };
 
-    const requestBody = JSON.stringify(appointmentData); // ← Ya está definido aquí
+    const requestBody = JSON.stringify(appointmentData);
 
     const headers = {
       'Accept-Encoding': 'gzip, deflate, br, zstd',
       'Accept-Language': 'en-US,en;q=0.9,es-419;q=0.8,es;q=0.7,pt;q=0.6',
       'Cache-Control': 'no-cache',
       'Content-Type': 'text/plain;charset=UTF-8',
-      'Content-Length': Buffer.byteLength(requestBody), // ← NUEVO
-      'Accept': '*/*', // ← NUEVO
-      'Connection': 'keep-alive', // ← NUEVO
+      'Content-Length': Buffer.byteLength(requestBody),
+      'Accept': '*/*',
+      'Connection': 'keep-alive',
       'Cookie': cookie,
       'Dnt': '1',
       'Host': 'www.italcambio.com',
@@ -157,11 +157,22 @@ async function makeAppointment(schedule, idparty, cookie) {
 
     const response = await axios.post(CONFIG.appointmentUrl, appointmentData, {
       headers: headers,
-      timeout: 30000
+      timeout: 30000,
+      validateStatus: function (status) {
+        // ✅ ACEPTAR todos los status codes para no lanzar excepción
+        return status >= 200 && status < 500; // Aceptar 2xx y 4xx
+      }
     });
 
-    if (response.data && response.data.message && response.data.message.includes('Cita generada exitosamente')) {
-      const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${idparty} - Hora: ${schedule.hora} - ID Schedule: ${schedule.idschedule}`;
+    // Ahora podemos verificar el status manualmente
+    const statusCode = response.status;
+    const responseData = response.data;
+
+    writeToLog(`📊 Respuesta del servidor: Status ${statusCode}`);
+
+    // Verificar si la cita se generó exitosamente (independientemente del status code)
+    if (responseData && responseData.message && responseData.message.includes('Cita generada exitosamente')) {
+      const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${idparty} - Hora: ${schedule.hora} - ID Schedule: ${schedule.idschedule} - Status: ${statusCode}`;
       writeToLog(successMessage);
       
       // Guardar en estado
@@ -170,19 +181,42 @@ async function makeAppointment(schedule, idparty, cookie) {
         hora: schedule.hora,
         idschedule: schedule.idschedule,
         fecha: state.currentConfig.date,
-        timestamp: getVenezuelaTime()
+        timestamp: getVenezuelaTime(),
+        statusCode: statusCode
       });
       
       return true;
+    } else if (statusCode === 200 || statusCode === 201) {
+      // Status exitoso pero mensaje diferente
+      const warningMessage = `⚠️ Agendamiento con status ${statusCode} pero mensaje inesperado - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
+      writeToLog(warningMessage);
+      return false;
     } else {
-      const errorMessage = `❌ Error en agendamiento - ID Party: ${idparty} - Respuesta: ${JSON.stringify(response.data)}`;
+      // Error real
+      const errorMessage = `❌ Error en agendamiento (${statusCode}) - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
       writeToLog(errorMessage);
       return false;
     }
     
   } catch (error) {
-    const errorMessage = `❌ Error en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
-    writeToLog(errorMessage);
+    // Solo debería entrar aquí por errores de red o timeout
+    if (error.response) {
+      // Esto no debería pasar con validateStatus, pero por si acaso
+      const responseData = error.response.data;
+      const statusCode = error.response.status;
+      
+      const errorMessage = `❌ Error inesperado (${statusCode}) - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
+      writeToLog(errorMessage);
+    } else if (error.request) {
+      // Error de red (sin respuesta)
+      const errorMessage = `❌ Error de red en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
+      writeToLog(errorMessage);
+    } else {
+      // Error en la configuración
+      const errorMessage = `❌ Error de configuración en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
+      writeToLog(errorMessage);
+    }
+    
     return false;
   }
 }
