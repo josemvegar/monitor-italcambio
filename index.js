@@ -117,16 +117,24 @@ function isTimeValid(hora12h, minHour) {
   }
 }
 
-// Función para hacer el agendamiento automático (VERSIÓN MEJORADA)
+// Función para hacer el agendamiento automático
 async function makeAppointment(schedule, idparty, cookie) {
   try {
+    // ✅ CORRECCIÓN: Convertir a números enteros
     const appointmentData = {
       date: state.currentConfig.date,
-      idparty: idparty,
-      idschedule: schedule.idschedule,
+      idparty: parseInt(idparty), // ← Convertir a int
+      idschedule: parseInt(schedule.idschedule), // ← Convertir a int
       status: 1,
       idappointmenttype: 1
     };
+
+    // ✅ VERIFICACIÓN: Asegurar que son números válidos
+    if (isNaN(appointmentData.idparty) || isNaN(appointmentData.idschedule)) {
+      const errorMessage = `❌ Error: ID Party (${idparty}) o ID Schedule (${schedule.idschedule}) no son números válidos`;
+      writeToLog(errorMessage);
+      return false;
+    }
 
     const requestBody = JSON.stringify(appointmentData);
 
@@ -153,42 +161,43 @@ async function makeAppointment(schedule, idparty, cookie) {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
     };
 
-    writeToLog(`📝 Intentando agendar cita para idparty: ${idparty} a las ${schedule.hora}`);
+    writeToLog(`📝 Intentando agendar cita para idparty: ${appointmentData.idparty} (como número) a las ${schedule.hora}`);
 
     const response = await axios.post(CONFIG.appointmentUrl, appointmentData, {
       headers: headers,
       timeout: 30000,
       validateStatus: function (status) {
-        // ✅ ACEPTAR todos los status codes para no lanzar excepción
         return status >= 200 && status < 500; // Aceptar 2xx y 4xx
       }
     });
 
-    // Ahora podemos verificar el status manualmente
     const statusCode = response.status;
     const responseData = response.data;
 
     writeToLog(`📊 Respuesta del servidor: Status ${statusCode}`);
 
-    // Verificar si la cita se generó exitosamente (independientemente del status code)
+    // Verificar si la cita se generó exitosamente
     if (responseData && responseData.message && responseData.message.includes('Cita generada exitosamente')) {
-      const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${idparty} - Hora: ${schedule.hora} - ID Schedule: ${schedule.idschedule} - Status: ${statusCode}`;
+      const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${appointmentData.idparty} - Hora: ${schedule.hora} - ID Schedule: ${appointmentData.idschedule} - Status: ${statusCode}`;
       writeToLog(successMessage);
       
       // Guardar en estado
       state.autoBooking.bookedAppointments.push({
-        idparty: idparty,
+        idparty: appointmentData.idparty,
         hora: schedule.hora,
-        idschedule: schedule.idschedule,
+        idschedule: appointmentData.idschedule,
         fecha: state.currentConfig.date,
         timestamp: getVenezuelaTime(),
         statusCode: statusCode
       });
       
       return true;
+    } else if (statusCode === 200 || statusCode === 201) {
+      const warningMessage = `⚠️ Agendamiento con status ${statusCode} pero mensaje inesperado - ID Party: ${appointmentData.idparty} - Respuesta: ${JSON.stringify(responseData)}`;
+      writeToLog(warningMessage);
+      return false;
     } else {
-      // Error real
-      const errorMessage = `❌ Error en agendamiento (${statusCode}) - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
+      const errorMessage = `❌ Error en agendamiento (${statusCode}) - ID Party: ${appointmentData.idparty} - Respuesta: ${JSON.stringify(responseData)}`;
       writeToLog(errorMessage);
       return false;
     }
@@ -196,18 +205,15 @@ async function makeAppointment(schedule, idparty, cookie) {
   } catch (error) {
     // Solo debería entrar aquí por errores de red o timeout
     if (error.response) {
-      // Esto no debería pasar con validateStatus, pero por si acaso
       const responseData = error.response.data;
       const statusCode = error.response.status;
       
       const errorMessage = `❌ Error inesperado (${statusCode}) - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
       writeToLog(errorMessage);
     } else if (error.request) {
-      // Error de red (sin respuesta)
       const errorMessage = `❌ Error de red en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
       writeToLog(errorMessage);
     } else {
-      // Error en la configuración
       const errorMessage = `❌ Error de configuración en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
       writeToLog(errorMessage);
     }
@@ -749,9 +755,13 @@ app.post('/update-auto-booking', (req, res) => {
   state.autoBooking.enabled = enabled === 'on';
   state.autoBooking.minHour = minHour || "09:00";
   
-  // Procesar idParties
+  // ✅ CORRECCIÓN: Convertir ID Parties a números
   state.autoBooking.idParties = idParties
-    ? idParties.split('\n').map(party => party.trim()).filter(party => party !== '')
+    ? idParties.split('\n')
+        .map(party => party.trim())
+        .filter(party => party !== '')
+        .map(party => parseInt(party)) // ← Convertir a números
+        .filter(party => !isNaN(party)) // ← Filtrar solo números válidos
     : [];
   
   // Procesar cookies
@@ -764,8 +774,16 @@ app.post('/update-auto-booking', (req, res) => {
   state.autoBooking.currentCookieIndex = 0;
   
   const statusMessage = state.autoBooking.enabled ? 'activado' : 'desactivado';
-  const changeMessage = `⚙️ AUTO-BOOKING ${statusMessage.toUpperCase()} - Hora mínima: ${state.autoBooking.minHour} - ID Parties: ${state.autoBooking.idParties.length} - Cookies: ${state.autoBooking.cookies.length}`;
+  const validParties = state.autoBooking.idParties.length;
+  const totalParties = idParties ? idParties.split('\n').filter(party => party.trim() !== '').length : 0;
+  
+  const changeMessage = `⚙️ AUTO-BOOKING ${statusMessage.toUpperCase()} - Hora mínima: ${state.autoBooking.minHour} - ID Parties válidos: ${validParties}/${totalParties} - Cookies: ${state.autoBooking.cookies.length}`;
   writeToLog(changeMessage);
+  
+  // Mostrar advertencia si hay IDs inválidos
+  if (validParties < totalParties) {
+    writeToLog(`⚠️ Se ignoraron ${totalParties - validParties} ID Parties inválidos (no son números)`);
+  }
   
   res.redirect('/?success=Configuración de auto-booking actualizada');
 });
