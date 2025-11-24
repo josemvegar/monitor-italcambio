@@ -16,14 +16,14 @@ const TEST_MODE = false; // true para testing, false para producción
 
 // Configuración INICIAL
 const CONFIG = {
-  targetUrl: TEST_MODE 
+  targetUrl: TEST_MODE
     ? 'http://localhost:3001/appointmentAPI/public/exchange/availaptmentbyhour.php'
     : 'https://www.italcambio.com/appointmentAPI/public/exchange/availaptmentbyhour.php',
-  
+
   appointmentUrl: TEST_MODE
     ? 'http://localhost:3001/appointmentAPI/public/exchange/appointment.php'
     : 'https://www.italcambio.com/appointmentAPI/public/exchange/appointment.php',
-  
+
   requestBody: {
     idlocation: 12,
     date: '15/11/2025'
@@ -48,26 +48,28 @@ let state = {
   currentConfig: { ...CONFIG.requestBody }, // Configuración actual
   autoBooking: {
     enabled: false,
-    minHour: "09:00", // Hora mínima para agendar
-    idParties: [], // Array de idparty
-    cookies: [], // Array de cookies
+    minHour: "09:00",
+    idParties: [],
+    cookies: [],
+    emails: [],   // ← ← ← NUEVA LÍNEA
     currentPartyIndex: 0,
     currentCookieIndex: 0,
-    bookedAppointments: [] // Citas agendadas exitosamente
+    bookedAppointments: []
   }
+
 };
 
 // Función para escribir en el archivo de log
 function writeToLog(message) {
   const timestamp = getVenezuelaTime();
   const logMessage = `[${timestamp}] ${message}\n`;
-  
+
   fs.appendFile(CONFIG.logFile, logMessage, (err) => {
     if (err) {
       console.error('Error escribiendo en log:', err);
     }
   });
-  
+
   console.log(message);
 }
 
@@ -82,7 +84,7 @@ function readLogs(limit = 100) {
     if (!fs.existsSync(CONFIG.logFile)) {
       return [];
     }
-    
+
     const logContent = fs.readFileSync(CONFIG.logFile, 'utf8');
     const lines = logContent.split('\n').filter(line => line.trim() !== '');
     return lines.slice(-limit).reverse(); // Últimas líneas primero
@@ -95,15 +97,15 @@ function readLogs(limit = 100) {
 function convertTo24Hour(time12h) {
   const [time, modifier] = time12h.split(' ');
   let [hours, minutes] = time.split(':');
-  
+
   if (hours === '12') {
     hours = '00';
   }
-  
+
   if (modifier === 'PM') {
     hours = parseInt(hours, 10) + 12;
   }
-  
+
   return `${hours.toString().padStart(2, '0')}:${minutes}`;
 }
 
@@ -180,7 +182,58 @@ async function makeAppointment(schedule, idparty, cookie) {
     if (responseData && responseData.message && responseData.message.includes('Cita generada exitosamente')) {
       const successMessage = `✅ CITA AGENDADA EXITOSAMENTE - ID Party: ${appointmentData.idparty} - Hora: ${schedule.hora} - ID Schedule: ${appointmentData.idschedule} - Status: ${statusCode}`;
       writeToLog(successMessage);
-      
+
+      // 🔵 PASO 3: Registrar en mngmapmtcustomer.php
+      try {
+        const payloadMap = {
+          appointmentId: appointmentData.idschedule,
+          personId: appointmentData.idparty
+        };
+
+        const mapResp = await axios.post(
+          'https://www.italcambio.com/appointmentAPI/public/security/mngmapmtcustomer.php',
+          payloadMap,
+          { headers, timeout: 30000 }
+        );
+
+        writeToLog(`📌 Registro interno MAP → Status ${mapResp.status} | Respuesta: ${JSON.stringify(mapResp.data)}`);
+
+        if (mapResp.status >= 400) {
+          writeToLog(`❌ Error registrando MAP: ${JSON.stringify(mapResp.data)}`);
+        }
+
+      } catch (err) {
+        writeToLog(`❌ Error en MAP: ${err.message}`);
+      }
+
+
+
+      // 🔵 PASO 4: Enviar correo mngmapmtcustomerEmail.php
+      try {
+        const payloadEmail = {
+          appointmentId: appointmentData.idschedule,
+          personId: appointmentData.idparty,
+          locationId: state.currentConfig.idlocation,
+          email: state.autoBooking.email || 'josevega1999.16@gmail.com'
+        };
+
+        const emailResp = await axios.post(
+          'https://www.italcambio.com/appointmentAPI/public/security/mngmapmtcustomerEmail.php',
+          payloadEmail,
+          { headers, timeout: 30000 }
+        );
+
+        writeToLog(`📨 Email enviado → Status ${emailResp.status} | Respuesta: ${JSON.stringify(emailResp.data)}`);
+
+        if (emailResp.status >= 400) {
+          writeToLog(`❌ Error enviando email: ${JSON.stringify(emailResp.data)}`);
+        }
+
+      } catch (err) {
+        writeToLog(`❌ Error en envío de email: ${err.message}`);
+      }
+
+
       // Guardar en estado
       state.autoBooking.bookedAppointments.push({
         idparty: appointmentData.idparty,
@@ -190,7 +243,7 @@ async function makeAppointment(schedule, idparty, cookie) {
         timestamp: getVenezuelaTime(),
         statusCode: statusCode
       });
-      
+
       return true;
     } else if (statusCode === 200 || statusCode === 201) {
       const warningMessage = `⚠️ Agendamiento con status ${statusCode} pero mensaje inesperado - ID Party: ${appointmentData.idparty} - Respuesta: ${JSON.stringify(responseData)}`;
@@ -201,13 +254,13 @@ async function makeAppointment(schedule, idparty, cookie) {
       writeToLog(errorMessage);
       return false;
     }
-    
+
   } catch (error) {
     // Solo debería entrar aquí por errores de red o timeout
     if (error.response) {
       const responseData = error.response.data;
       const statusCode = error.response.status;
-      
+
       const errorMessage = `❌ Error inesperado (${statusCode}) - ID Party: ${idparty} - Respuesta: ${JSON.stringify(responseData)}`;
       writeToLog(errorMessage);
     } else if (error.request) {
@@ -217,7 +270,7 @@ async function makeAppointment(schedule, idparty, cookie) {
       const errorMessage = `❌ Error de configuración en agendamiento - ID Party: ${idparty} - Error: ${error.message}`;
       writeToLog(errorMessage);
     }
-    
+
     return false;
   }
 }
@@ -229,9 +282,9 @@ async function processAvailability(responseData) {
   }
 
   // Filtrar horarios válidos (mayores o iguales a la hora mínima)
-  const validSchedules = responseData.filter(schedule => 
-    schedule.idschedule && 
-    schedule.hora && 
+  const validSchedules = responseData.filter(schedule =>
+    schedule.idschedule &&
+    schedule.hora &&
     isTimeValid(schedule.hora, state.autoBooking.minHour)
   );
 
@@ -254,9 +307,9 @@ async function processAvailability(responseData) {
     if (success) {
       // ✅ CORRECCIÓN: Remover SOLO el idparty usado
       state.autoBooking.idParties.shift(); // Remover el primero
-      
+
       // ✅ CORRECCIÓN: Rotar cookie para el próximo
-      state.autoBooking.currentCookieIndex = 
+      state.autoBooking.currentCookieIndex =
         (state.autoBooking.currentCookieIndex + 1) % state.autoBooking.cookies.length;
 
       writeToLog(`✅ ID Party ${idparty} agendado exitosamente. Restantes: ${state.autoBooking.idParties.length}`);
@@ -280,7 +333,7 @@ async function makeRequest() {
 
   try {
     const requestBody = JSON.stringify(state.currentConfig); // ← Esto es lo que falta
-    
+
     const response = await axios.post(CONFIG.targetUrl, state.currentConfig, {
       headers: {
         'Content-Type': 'application/json',
@@ -294,26 +347,26 @@ async function makeRequest() {
 
     state.requestCount++;
     state.totalRequests++;
-    
+
     // Verificación robusta de la respuesta
-    const hasDifferentResponse = 
+    const hasDifferentResponse =
       !response.data || // Si no hay data
       !response.data.message || // Si no existe la propiedad message
       response.data.message !== "Sin Disponibilidad"; // Si existe pero es diferente
-    
+
     if (hasDifferentResponse) {
       const venezuelaTime = getVenezuelaTime();
       state.totalChanges++;
-      
+
       const alertMessage = `🚨 RESPUESTA DIFERENTE ENCONTRADA - ${venezuelaTime}`;
       const responseMessage = `📦 Respuesta: ${JSON.stringify(response.data)}`;
       const configMessage = `⚙️ Configuración: Ubicación ${state.currentConfig.idlocation}, Fecha ${state.currentConfig.date}`;
-      
+
       writeToLog(alertMessage);
       writeToLog(configMessage);
       writeToLog(responseMessage);
       writeToLog('---');
-      
+
       // Actualizar estado
       state.lastDifferentResponse = response.data;
       state.lastDifferentResponseTime = venezuelaTime;
@@ -324,7 +377,7 @@ async function makeRequest() {
         await processAvailability(response.data);
       }
     }
-    
+
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
     // Solo loguear errores que NO sean 400/404
@@ -332,7 +385,7 @@ async function makeRequest() {
       const errorMessage = `❌ ERROR: ${error.message}`;
       writeToLog(errorMessage);
     }
-    
+
     // Si es un error de timeout, esperar un poco más antes del próximo intento
     if (error.code === 'ECONNABORTED') {
       await new Promise(resolve => setTimeout(resolve, 5000));
@@ -343,16 +396,16 @@ async function makeRequest() {
     const now = Date.now();
     if (now - state.lastLogTime >= CONFIG.logInterval) {
       const venezuelaTime = getVenezuelaTime();
-      
+
       let logMessage;
       if (state.hourWithoutChanges) {
         logMessage = `📊 [LOG HORARIO] ${venezuelaTime} - ${state.requestCount} solicitudes realizadas - Sin cambios en la última hora | Config: Ubicación ${state.currentConfig.idlocation}, Fecha ${state.currentConfig.date}`;
       } else {
         logMessage = `🎯 [LOG HORARIO] ${venezuelaTime} - ${state.requestCount} solicitudes realizadas - Se encontraron cambios durante esta hora | Último cambio: ${state.lastDifferentResponseTime} | Config: Ubicación ${state.currentConfig.idlocation}, Fecha ${state.currentConfig.date}`;
       }
-      
+
       writeToLog(logMessage);
-      
+
       // Reiniciar contadores para la próxima hora
       state.lastLogTime = now;
       state.requestCount = 0;
@@ -372,7 +425,7 @@ async function startMonitor() {
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
-  
+
   // Bucle de monitoreo
   while (state.isRunning) {
     await makeRequest();
@@ -386,9 +439,9 @@ app.get('/', (req, res) => {
   const hours = Math.floor(uptime / 3600);
   const minutes = Math.floor((uptime % 3600) / 60);
   const seconds = uptime % 60;
-  
+
   const logs = readLogs(50); // Últimos 50 logs
-  
+
   const html = `
 <!DOCTYPE html>
 <html lang="es">
@@ -562,14 +615,14 @@ app.get('/', (req, res) => {
         
         <!-- Controles principales -->
         <div style="margin-bottom: 20px;">
-            ${state.isRunning ? 
-                `<form action="/stop-monitor" method="POST" style="display: inline;">
+            ${state.isRunning ?
+      `<form action="/stop-monitor" method="POST" style="display: inline;">
                     <button type="submit" class="btn-danger">⏹️ Detener Monitor</button>
                 </form>` :
-                `<form action="/start-monitor" method="POST" style="display: inline;">
+      `<form action="/start-monitor" method="POST" style="display: inline;">
                     <button type="submit" class="btn-success">▶️ Iniciar Monitor</button>
                 </form>`
-            }
+    }
             <form action="/clear-counters" method="POST" style="display: inline;">
                 <button type="submit" class="btn-warning">🔄 Reiniciar Contadores</button>
             </form>
@@ -626,6 +679,12 @@ app.get('/', (req, res) => {
                     <textarea id="cookies" name="cookies" placeholder="Ejemplo:&#10;PHPSESSID=abc123...&#10;PHPSESSID=def456...">${state.autoBooking.cookies.join('\n')}</textarea>
                     <small>Ingresa una o más cookies de sesión, una por línea</small>
                 </div>
+                <div class="form-group">
+                    <label for="emails">Emails (uno por línea):</label>
+                    <textarea id="emails" name="emails" placeholder="Ejemplo:&#10;correo1@example.com&#10;correo2@example.com">${state.autoBooking.emails.join('\n')}</textarea>
+                    <small>Ingresa uno o más correos, uno por línea</small>
+                </div>
+
                 <button type="submit" class="btn-success">💾 Guardar Configuración Auto-Booking</button>
             </form>
         </div>
@@ -690,15 +749,15 @@ app.get('/', (req, res) => {
         <h2>Últimos Logs</h2>
         <div class="logs">
             ${logs.map(log => {
-                let cssClass = 'log-info';
-                if (log.includes('🚨') || log.includes('RESPUESTA DIFERENTE')) cssClass = 'log-success';
-                if (log.includes('❌') || log.includes('ERROR')) cssClass = 'log-error';
-                if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
-                if (log.includes('✅') || log.includes('CITA AGENDADA')) cssClass = 'log-success';
-                if (log.includes('📝') || log.includes('Intentando agendar')) cssClass = 'log-info';
-                
-                return `<div class="log-entry ${cssClass}">${log}</div>`;
-            }).join('')}
+      let cssClass = 'log-info';
+      if (log.includes('🚨') || log.includes('RESPUESTA DIFERENTE')) cssClass = 'log-success';
+      if (log.includes('❌') || log.includes('ERROR')) cssClass = 'log-error';
+      if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
+      if (log.includes('✅') || log.includes('CITA AGENDADA')) cssClass = 'log-success';
+      if (log.includes('📝') || log.includes('Intentando agendar')) cssClass = 'log-info';
+
+      return `<div class="log-entry ${cssClass}">${log}</div>`;
+    }).join('')}
             ${logs.length === 0 ? '<div class="log-entry">No hay logs disponibles</div>' : ''}
         </div>
         
@@ -716,75 +775,83 @@ app.get('/', (req, res) => {
 </body>
 </html>
   `;
-  
+
   res.send(html);
 });
 
 // Ruta para actualizar configuración
 app.post('/update-config', (req, res) => {
   const { date, idlocation } = req.body;
-  
+
   // Validar fecha
   const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
   if (!dateRegex.test(date)) {
     return res.redirect('/?error=Formato de fecha inválido. Use DD/MM/YYYY');
   }
-  
+
   // Actualizar configuración
   const oldConfig = { ...state.currentConfig };
   state.currentConfig.date = date;
   state.currentConfig.idlocation = parseInt(idlocation);
-  
+
   // Log del cambio
   const changeMessage = `⚙️ CONFIGURACIÓN ACTUALIZADA: De Ubicación ${oldConfig.idlocation}, Fecha ${oldConfig.date} → A Ubicación ${state.currentConfig.idlocation}, Fecha ${state.currentConfig.date}`;
   writeToLog(changeMessage);
-  
+
   // Reiniciar algunos contadores para la nueva configuración
   state.requestCount = 0;
   state.hourWithoutChanges = true;
   state.lastDifferentResponse = null;
   state.lastDifferentResponseTime = null;
-  
+
   res.redirect('/?success=Configuración actualizada correctamente');
 });
 
 // Ruta para actualizar auto-booking
 app.post('/update-auto-booking', (req, res) => {
-  const { enabled, minHour, idParties, cookies } = req.body;
-  
+  const { enabled, minHour, idParties, cookies, emails } = req.body;
+
   state.autoBooking.enabled = enabled === 'on';
   state.autoBooking.minHour = minHour || "09:00";
-  
+
   // ✅ CORRECCIÓN: Convertir ID Parties a números
   state.autoBooking.idParties = idParties
     ? idParties.split('\n')
-        .map(party => party.trim())
-        .filter(party => party !== '')
-        .map(party => parseInt(party)) // ← Convertir a números
-        .filter(party => !isNaN(party)) // ← Filtrar solo números válidos
+      .map(party => party.trim())
+      .filter(party => party !== '')
+      .map(party => parseInt(party)) // ← Convertir a números
+      .filter(party => !isNaN(party)) // ← Filtrar solo números válidos
     : [];
-  
+
   // Procesar cookies
   state.autoBooking.cookies = cookies
     ? cookies.split('\n').map(cookie => cookie.trim()).filter(cookie => cookie !== '')
     : [];
-  
+
+  // Procesar emails (uno por línea)
+  state.autoBooking.emails = emails
+    ? emails.split('\n')
+      .map(email => email.trim())
+      .filter(email => email !== '')
+    : [];
+
+
   // Reiniciar índices
   state.autoBooking.currentPartyIndex = 0;
   state.autoBooking.currentCookieIndex = 0;
-  
+
   const statusMessage = state.autoBooking.enabled ? 'activado' : 'desactivado';
   const validParties = state.autoBooking.idParties.length;
   const totalParties = idParties ? idParties.split('\n').filter(party => party.trim() !== '').length : 0;
-  
+
   const changeMessage = `⚙️ AUTO-BOOKING ${statusMessage.toUpperCase()} - Hora mínima: ${state.autoBooking.minHour} - ID Parties válidos: ${validParties}/${totalParties} - Cookies: ${state.autoBooking.cookies.length}`;
   writeToLog(changeMessage);
-  
+
   // Mostrar advertencia si hay IDs inválidos
   if (validParties < totalParties) {
     writeToLog(`⚠️ Se ignoraron ${totalParties - validParties} ID Parties inválidos (no son números)`);
   }
-  
+
   res.redirect('/?success=Configuración de auto-booking actualizada');
 });
 
@@ -799,14 +866,14 @@ app.post('/stop-monitor', (req, res) => {
 app.post('/start-monitor', (req, res) => {
   state.isRunning = true;
   writeToLog('▶️ MONITOR INICIADO MANUALMENTE');
-  
+
   // Reiniciar el bucle de monitoreo si no está corriendo
   if (!state.monitorRunning) {
     startMonitor().catch(error => {
       console.error('Error al reiniciar monitor:', error);
     });
   }
-  
+
   res.redirect('/?success=Monitor iniciado');
 });
 
@@ -818,7 +885,7 @@ app.post('/clear-counters', (req, res) => {
   state.lastDifferentResponse = null;
   state.lastDifferentResponseTime = null;
   state.autoBooking.bookedAppointments = [];
-  
+
   writeToLog('🔄 CONTADORES REINICIADOS MANUALMENTE');
   res.redirect('/?success=Contadores reiniciados');
 });
@@ -844,30 +911,30 @@ app.get('/api/config', (req, res) => {
 
 app.post('/api/config', (req, res) => {
   const { date, idlocation } = req.body;
-  
+
   // Validaciones
   const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
   if (!dateRegex.test(date)) {
     return res.status(400).json({ error: 'Formato de fecha inválido. Use DD/MM/YYYY' });
   }
-  
+
   const oldConfig = { ...state.currentConfig };
   state.currentConfig.date = date;
   state.currentConfig.idlocation = parseInt(idlocation);
-  
+
   const changeMessage = `⚙️ CONFIGURACIÓN ACTUALIZADA vía API: De Ubicación ${oldConfig.idlocation}, Fecha ${oldConfig.date} → A Ubicación ${state.currentConfig.idlocation}, Fecha ${state.currentConfig.date}`;
   writeToLog(changeMessage);
-  
+
   // Reiniciar contadores
   state.requestCount = 0;
   state.hourWithoutChanges = true;
   state.lastDifferentResponse = null;
   state.lastDifferentResponseTime = null;
-  
-  res.json({ 
-    success: true, 
+
+  res.json({
+    success: true,
     message: 'Configuración actualizada',
-    newConfig: state.currentConfig 
+    newConfig: state.currentConfig
   });
 });
 
@@ -881,10 +948,10 @@ app.get('/api/logs', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🌐 Servidor web corriendo en puerto ${PORT}`);
   console.log(`📊 Dashboard disponible en: http://localhost:${PORT}`);
-  
+
   // Marcar que el monitor está corriendo
   state.monitorRunning = true;
-  
+
   // Iniciar el monitor después de que Express esté listo
   startMonitor().catch(error => {
     console.error('Error fatal en el monitor:', error);
