@@ -120,7 +120,7 @@ function isTimeValid(hora12h, minHour) {
 }
 
 // Función para hacer el agendamiento automático
-async function makeAppointment(schedule, idparty, cookie) {
+async function makeAppointment(schedule, idparty, cookie, email) {
   try {
     // ✅ CORRECCIÓN: Convertir a números enteros
     const appointmentData = {
@@ -214,7 +214,7 @@ async function makeAppointment(schedule, idparty, cookie) {
           appointmentId: appointmentData.idschedule,
           personId: appointmentData.idparty,
           locationId: state.currentConfig.idlocation,
-          email: state.autoBooking.email || 'josevega1999.16@gmail.com'
+          email: email || 'josevega1999.16@gmail.com'
         };
 
         const emailResp = await axios.post(
@@ -299,14 +299,16 @@ async function processAvailability(responseData) {
   if (state.autoBooking.idParties.length > 0 && state.autoBooking.cookies.length > 0) {
     const idparty = state.autoBooking.idParties[0]; // Solo el primero
     const cookie = state.autoBooking.cookies[state.autoBooking.currentCookieIndex];
+    const email = state.autoBooking.emails[0]; // ← NUEVA LÍNEA
 
     // Intentar con el primer horario disponible
     const schedule = validSchedules[0];
-    const success = await makeAppointment(schedule, idparty, cookie);
+    const success = await makeAppointment(schedule, idparty, cookie, email); // ← Añadir email
 
     if (success) {
       // ✅ CORRECCIÓN: Remover SOLO el idparty usado
       state.autoBooking.idParties.shift(); // Remover el primero
+      state.autoBooking.emails.shift(); // ← Remover el email correspondiente
 
       // ✅ CORRECCIÓN: Rotar cookie para el próximo
       state.autoBooking.currentCookieIndex =
