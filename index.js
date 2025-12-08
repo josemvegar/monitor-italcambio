@@ -171,6 +171,13 @@ async function checkAmount(idparty, date, cookie) {
     const statusCode = response.status;
     const responseData = response.data;
 
+    // ⚠️ MANEJO DE 429
+    if (statusCode === 429) {
+        writeToLog(`🐢 429 TOO MANY REQUESTS en checkAmount - Pausando 5 segundos...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        return false;
+    }
+
     if (statusCode === 200 && Array.isArray(responseData) && responseData[0] && responseData[0].amount === 100) {
       writeToLog(`✅ Monto verificado: $${responseData[0].amount}`);
       return true;
@@ -180,7 +187,12 @@ async function checkAmount(idparty, date, cookie) {
     }
 
   } catch (error) {
-    writeToLog(`❌ Error verificando monto: ${error.message}`);
+    if (error.response && error.response.status === 429) {
+        writeToLog(`🐢 429 TOO MANY REQUESTS (Catch) en checkAmount - Pausando 5 segundos...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+    } else {
+        writeToLog(`❌ Error verificando monto: ${error.message}`);
+    }
     return false;
   }
 }
@@ -188,7 +200,6 @@ async function checkAmount(idparty, date, cookie) {
 // Función para hacer el agendamiento automático
 async function makeAppointment(schedule, idparty, cookie) {
   try {
-    // ✅ CORRECCIÓN: Payload en el orden exacto del frontend
     const appointmentData = {
       date: state.currentConfig.date,
       idparty: parseInt(idparty),
@@ -197,7 +208,6 @@ async function makeAppointment(schedule, idparty, cookie) {
       idappointmenttype: 1
     };
 
-    // ✅ VERIFICACIÓN: Asegurar que son números válidos
     if (isNaN(appointmentData.idparty) || isNaN(appointmentData.idschedule)) {
       const errorMessage = `❌ Error: ID Party (${idparty}) o ID Schedule (${schedule.idschedule}) no son números válidos`;
       writeToLog(errorMessage);
@@ -244,7 +254,13 @@ async function makeAppointment(schedule, idparty, cookie) {
 
     writeToLog(`📊 Respuesta del servidor: Status ${statusCode}`);
 
-    // ✅ CORRECCIÓN: Verificar ambos mensajes de éxito (200 y 400)
+    // ⚠️ MANEJO DE 429 EN AGENDAMIENTO
+    if (statusCode === 429) {
+        writeToLog(`🐢 429 TOO MANY REQUESTS al agendar - Pausando 5 segundos...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        return false;
+    }
+
     const successMessages = [
       'Confirmación de su cita ha sido enviado exitosamente',
       'Cita generada exitosamente',
@@ -259,7 +275,6 @@ async function makeAppointment(schedule, idparty, cookie) {
       writeToLog(successMessage);
       writeToLog(`📨 Mensaje: ${responseData.message}`);
 
-      // Guardar en estado
       state.autoBooking.bookedAppointments.push({
         idparty: appointmentData.idparty,
         hora: schedule.hora,
@@ -278,12 +293,17 @@ async function makeAppointment(schedule, idparty, cookie) {
     }
 
   } catch (error) {
-    // Solo debería entrar aquí por errores de red o timeout
+    // ⚠️ MANEJO DE 429 EN CATCH
+    if (error.response && error.response.status === 429) {
+        writeToLog(`🐢 429 TOO MANY REQUESTS (Catch) al agendar - Pausando 5 segundos...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        return false;
+    }
+
     if (error.response) {
       const responseData = error.response.data;
       const statusCode = error.response.status;
 
-      // ✅ CORRECCIÓN: Verificar éxito incluso en errores HTTP
       const successMessages = [
         'Confirmación de su cita ha sido enviado exitosamente',
         'Cita generada exitosamente',
@@ -364,6 +384,12 @@ async function getHourlyAvailability(cookie) {
 
     return response.data;
   } catch (error) {
+    // ⚠️ MANEJO DE 429
+    if (error.response && error.response.status === 429) {
+        writeToLog(`🐢 429 TOO MANY REQUESTS en Disponibilidad por Hora - Pausando 5 segundos...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        return null;
+    }
     writeToLog(`❌ Error obteniendo disponibilidad por hora: ${error.message}`);
     return null;
   }
@@ -375,12 +401,10 @@ async function processAvailability(responseData) {
     return;
   }
 
-  // ✅ CORRECCIÓN: Solo agendar para el PRIMER idparty disponible
   if (state.autoBooking.idParties.length > 0 && state.autoBooking.cookies.length > 0) {
     const idparty = state.autoBooking.idParties[0]; // Solo el primero
     const cookie = state.autoBooking.cookies[0]; // Cookie asociada
 
-    // 1. Primero obtener disponibilidad por hora
     const hourlyAvailability = await getHourlyAvailability(cookie);
     
     if (!hourlyAvailability || !Array.isArray(hourlyAvailability)) {
@@ -390,7 +414,6 @@ async function processAvailability(responseData) {
 
     writeToLog(`📅 Disponibilidad por hora obtenida: ${hourlyAvailability.length} horarios`);
 
-    // Filtrar horarios válidos (mayores o iguales a la hora mínima)
     const validSchedules = hourlyAvailability.filter(schedule =>
       schedule.idschedule &&
       schedule.hora &&
@@ -404,7 +427,6 @@ async function processAvailability(responseData) {
 
     writeToLog(`🎯 ${validSchedules.length} horario(s) válido(s) encontrado(s) para agendamiento`);
 
-    // 2. Verificar monto antes de agendar
     const amountValid = await checkAmount(idparty, state.currentConfig.date, cookie);
     
     if (!amountValid) {
@@ -412,22 +434,18 @@ async function processAvailability(responseData) {
       return;
     }
 
-    // Intentar con el primer horario disponible
     const schedule = validSchedules[0];
     const success = await makeAppointment(schedule, idparty, cookie);
 
     if (success) {
-      // ✅ CORRECCIÓN: Remover tanto el idparty como su cookie asociada
       state.autoBooking.idParties.shift(); // Remover el primer idparty
       state.autoBooking.cookies.shift(); // Remover la primera cookie
       
-      // ✅ CORRECCIÓN: Reiniciar índices
       state.autoBooking.currentPartyIndex = 0;
       state.autoBooking.currentCookieIndex = 0;
 
       writeToLog(`✅ ID Party ${idparty} agendado exitosamente. Restantes: ${state.autoBooking.idParties.length}`);
 
-      // Si no quedan más idparties, desactivar auto-booking
       if (state.autoBooking.idParties.length === 0) {
         writeToLog('🏁 Todos los idparties han sido agendados. Auto-booking desactivado.');
         state.autoBooking.enabled = false;
@@ -483,12 +501,11 @@ async function makeRequest() {
     state.requestCount++;
     state.totalRequests++;
 
-    // Verificación robusta de la respuesta
     const hasDifferentResponse =
-      !response.data || // Si no hay data
-      !Array.isArray(response.data) || // Si no es un array
-      response.data.length === 0 || // Si está vacío
-      (response.data[0] && response.data[0].capacidaddisponible > 0); // Si hay capacidad disponible
+      !response.data ||
+      !Array.isArray(response.data) || 
+      response.data.length === 0 || 
+      (response.data[0] && response.data[0].capacidaddisponible > 0); 
 
     if (hasDifferentResponse) {
       const venezuelaTime = getVenezuelaTime();
@@ -503,12 +520,10 @@ async function makeRequest() {
       writeToLog(responseMessage);
       writeToLog('---');
 
-      // Actualizar estado
       state.lastDifferentResponse = response.data;
       state.lastDifferentResponseTime = venezuelaTime;
       state.hourWithoutChanges = false;
 
-      // Procesar disponibilidad para auto-booking
       if (Array.isArray(response.data) && response.data.length > 0) {
         await processAvailability(response.data);
       }
@@ -516,19 +531,24 @@ async function makeRequest() {
 
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
-    // Solo loguear errores que NO sean 400/404
+
+    // ⚠️ PRINCIPAL: MANEJO DE 429 EN EL MONITOR
+    if (error.response && error.response.status === 429) {
+        writeToLog(`🐢 429 TOO MANY REQUESTS en Monitor Principal - Enfriando motores por 5 segundos...`);
+        // Esta espera detiene el bucle temporalmente antes de la siguiente iteración
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        return; // Salimos para evitar que se ejecute más lógica y se pase al finally
+    }
+
     if (!error.message.includes('400') && !error.message.includes('404') && !error.message.includes('Bad Request')) {
       const errorMessage = `❌ ERROR: ${error.message}`;
       writeToLog(errorMessage);
     }
 
-    // Si es un error de timeout, esperar un poco más antes del próximo intento
     if (error.code === 'ECONNABORTED') {
       await new Promise(resolve => setTimeout(resolve, 5000));
     }
   } finally {
-    // ✅ ESTA PARTE SIEMPRE SE EJECUTA, TANTO EN ÉXITO COMO EN ERROR
-    // Verificar si es hora de hacer log (cada hora)
     const now = Date.now();
     if (now - state.lastLogTime >= CONFIG.logInterval) {
       const venezuelaTime = getVenezuelaTime();
@@ -542,7 +562,6 @@ async function makeRequest() {
 
       writeToLog(logMessage);
 
-      // Reiniciar contadores para la próxima hora
       state.lastLogTime = now;
       state.requestCount = 0;
       state.hourWithoutChanges = true;
@@ -623,14 +642,14 @@ app.get('/', (req, res) => {
         .config-form {
             background: #e3f2fd;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 5px; 
             margin-bottom: 20px;
             border-left: 4px solid #2196F3;
         }
         .auto-booking-form {
             background: #fff3e0;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 5px; 
             margin-bottom: 20px;
             border-left: 4px solid #FF9800;
         }
@@ -718,21 +737,21 @@ app.get('/', (req, res) => {
         .current-config {
             background: #fff3e0;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 5px; 
             margin-bottom: 10px;
             border-left: 4px solid #FF9800;
         }
         .auto-booking-status {
             background: #e8f5e8;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 5px; 
             margin-bottom: 10px;
             border-left: 4px solid #4CAF50;
         }
         .booked-appointments {
             background: #d4edda;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 5px; 
             margin-bottom: 20px;
             border-left: 4px solid #28a745;
         }
@@ -749,7 +768,6 @@ app.get('/', (req, res) => {
     <div class="container">
         <h1>🚀 Monitor de Italcambio</h1>
         
-        <!-- Controles principales -->
         <div style="margin-bottom: 20px;">
             ${state.isRunning ?
       `<form action="/stop-monitor" method="POST" style="display: inline;">
@@ -764,7 +782,6 @@ app.get('/', (req, res) => {
             </form>
         </div>
         
-        <!-- Formulario de Configuración -->
         <div class="config-form">
             <h3>⚙️ Configuración del Monitor</h3>
             <form action="/update-config" method="POST">
@@ -788,7 +805,6 @@ app.get('/', (req, res) => {
             </form>
         </div>
 
-        <!-- Formulario de Auto-Booking -->
         <div class="auto-booking-form">
             <h3>🤖 Auto-Booking Automático</h3>
             <form action="/update-auto-booking" method="POST">
@@ -885,6 +901,7 @@ app.get('/', (req, res) => {
       if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
       if (log.includes('✅') || log.includes('CITA AGENDADA')) cssClass = 'log-success';
       if (log.includes('📝') || log.includes('Intentando agendar')) cssClass = 'log-info';
+      if (log.includes('🐢') || log.includes('429')) cssClass = 'log-warning'; // Clase para 429
 
       return `<div class="log-entry ${cssClass}">${log}</div>`;
     }).join('')}
@@ -944,13 +961,12 @@ app.post('/update-auto-booking', (req, res) => {
   state.autoBooking.enabled = enabled === 'on';
   state.autoBooking.minHour = minHour || "09:00";
 
-  // ✅ CORRECCIÓN: Convertir ID Parties a números
   state.autoBooking.idParties = idParties
     ? idParties.split('\n')
       .map(party => party.trim())
       .filter(party => party !== '')
-      .map(party => parseInt(party)) // ← Convertir a números
-      .filter(party => !isNaN(party)) // ← Filtrar solo números válidos
+      .map(party => parseInt(party))
+      .filter(party => !isNaN(party))
     : [];
 
   // Procesar cookies
@@ -969,7 +985,6 @@ app.post('/update-auto-booking', (req, res) => {
   const changeMessage = `⚙️ AUTO-BOOKING ${statusMessage.toUpperCase()} - Hora mínima: ${state.autoBooking.minHour} - ID Parties válidos: ${validParties}/${totalParties} - Cookies: ${state.autoBooking.cookies.length}`;
   writeToLog(changeMessage);
 
-  // Mostrar advertencia si hay IDs inválidos
   if (validParties < totalParties) {
     writeToLog(`⚠️ Se ignoraron ${totalParties - validParties} ID Parties inválidos (no son números)`);
   }
