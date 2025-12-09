@@ -36,7 +36,7 @@ const CONFIG = {
     idlocation: 12,
     date: '15/11/2025'
   },
-  checkInterval: 1000, // 1 segundo entre llamadas
+  checkInterval: 2000, // 1 segundo entre llamadas
   logInterval: 60 * 60 * 1000, // 1 hora en milisegundos
   timezone: 'America/Caracas',
   logFile: 'monitor.log'
