@@ -36,7 +36,8 @@ const CONFIG = {
     idlocation: 12,
     date: '15/11/2025'
   },
-  checkInterval: 20000, // 1 segundo entre llamadas
+  // checkInterval ya no se usa directamente para el setTimeout fijo, se usa smartWait
+  checkInterval: 20000, 
   logInterval: 60 * 60 * 1000, // 1 hora en milisegundos
   timezone: 'America/Caracas',
   logFile: 'monitor.log'
@@ -65,6 +66,10 @@ let state = {
   }
 };
 
+// --------------------------------------------------------------------------
+// 🛠️ FUNCIONES DE UTILIDAD Y SMART WAIT
+// --------------------------------------------------------------------------
+
 // Función para escribir en el archivo de log
 function writeToLog(message) {
   const timestamp = getVenezuelaTime();
@@ -82,6 +87,40 @@ function writeToLog(message) {
 // Función para obtener la hora actual de Venezuela
 function getVenezuelaTime() {
   return moment().tz(CONFIG.timezone).format('YYYY-MM-DD HH:mm:ss');
+}
+
+// Función de espera inteligente sincronizada al reloj
+async function smartWait(intervalSeconds) {
+  return new Promise(resolve => {
+    const now = moment().tz(CONFIG.timezone);
+    const currentSeconds = now.seconds();
+    const currentMillis = now.milliseconds();
+
+    // Calculamos el siguiente hito (target) basado en el intervalo
+    // Ejemplo interval=20: Si son las :12 -> target :20. Si son las :25 -> target :40.
+    let nextTargetSeconds = Math.ceil((currentSeconds + 0.1) / intervalSeconds) * intervalSeconds;
+
+    // Si el target es igual o menor al actual (por milisegundos), saltamos al siguiente ciclo
+    if (nextTargetSeconds <= currentSeconds) {
+        nextTargetSeconds += intervalSeconds;
+    }
+
+    // Calculamos cuánto falta en milisegundos
+    // (nextTargetSeconds * 1000) = Meta en ms desde el inicio del minuto
+    // (currentSeconds * 1000 + currentMillis) = Tiempo actual en ms dentro del minuto
+    let delay = (nextTargetSeconds * 1000) - (currentSeconds * 1000 + currentMillis);
+
+    // Seguridad: evitar ejecuciones dobles si el delay es muy pequeño (<500ms)
+    if (delay < 500) {
+        delay += (intervalSeconds * 1000);
+    }
+
+    // Debug opcional para ver a qué hora se ejecutará
+    // const executionTime = moment().tz(CONFIG.timezone).add(delay, 'ms').format('HH:mm:ss');
+    // console.log(`⏳ Sincronizando... esperando ${Math.round(delay/1000)}s`);
+
+    setTimeout(resolve, delay);
+  });
 }
 
 // Función para leer los logs
@@ -124,6 +163,10 @@ function isTimeValid(hora12h, minHour) {
     return false;
   }
 }
+
+// --------------------------------------------------------------------------
+// 📡 FUNCIONES DE API
+// --------------------------------------------------------------------------
 
 // Función para verificar el monto del cliente
 async function checkAmount(idparty, date, cookie) {
@@ -171,10 +214,10 @@ async function checkAmount(idparty, date, cookie) {
     const statusCode = response.status;
     const responseData = response.data;
 
-    // ⚠️ MANEJO DE 429
+    // ⚠️ MANEJO DE 429 - SUBENDPOINT (30 SEGUNDOS)
     if (statusCode === 429) {
-        writeToLog(`🐢 429 TOO MANY REQUESTS en checkAmount - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        writeToLog(`🐢 429 en checkAmount - Sincronizando a :00 o :30...`);
+        await smartWait(30); 
         return false;
     }
 
@@ -188,8 +231,8 @@ async function checkAmount(idparty, date, cookie) {
 
   } catch (error) {
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 TOO MANY REQUESTS (Catch) en checkAmount - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        writeToLog(`🐢 429 (Catch) en checkAmount - Sincronizando a :00 o :30...`);
+        await smartWait(30);
     } else {
         writeToLog(`❌ Error verificando monto: ${error.message}`);
     }
@@ -254,10 +297,10 @@ async function makeAppointment(schedule, idparty, cookie) {
 
     writeToLog(`📊 Respuesta del servidor: Status ${statusCode}`);
 
-    // ⚠️ MANEJO DE 429 EN AGENDAMIENTO
+    // ⚠️ MANEJO DE 429 - SUBENDPOINT (30 SEGUNDOS)
     if (statusCode === 429) {
-        writeToLog(`🐢 429 TOO MANY REQUESTS al agendar - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        writeToLog(`🐢 429 al agendar - Sincronizando a :00 o :30...`);
+        await smartWait(30);
         return false;
     }
 
@@ -293,10 +336,10 @@ async function makeAppointment(schedule, idparty, cookie) {
     }
 
   } catch (error) {
-    // ⚠️ MANEJO DE 429 EN CATCH
+    // ⚠️ MANEJO DE 429 EN CATCH - SUBENDPOINT (30 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 TOO MANY REQUESTS (Catch) al agendar - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        writeToLog(`🐢 429 (Catch) al agendar - Sincronizando a :00 o :30...`);
+        await smartWait(30);
         return false;
     }
 
@@ -384,10 +427,10 @@ async function getHourlyAvailability(cookie) {
 
     return response.data;
   } catch (error) {
-    // ⚠️ MANEJO DE 429
+    // ⚠️ MANEJO DE 429 - SUBENDPOINT (30 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 TOO MANY REQUESTS en Disponibilidad por Hora - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        writeToLog(`🐢 429 en Disponibilidad por Hora - Sincronizando a :00 o :30...`);
+        await smartWait(30);
         return null;
     }
     writeToLog(`❌ Error obteniendo disponibilidad por hora: ${error.message}`);
@@ -532,12 +575,14 @@ async function makeRequest() {
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
 
-    // ⚠️ PRINCIPAL: MANEJO DE 429 EN EL MONITOR
+    // ⚠️ PRINCIPAL: MANEJO DE 429 EN EL MONITOR (60 SEGUNDOS / MINUTO EXACTO)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 TOO MANY REQUESTS en Monitor Principal - Enfriando motores por 5 segundos...`);
-        // Esta espera detiene el bucle temporalmente antes de la siguiente iteración
-        await new Promise(resolve => setTimeout(resolve, 60000));
-        return; // Salimos para evitar que se ejecute más lógica y se pase al finally
+        writeToLog(`🐢 429 PRINCIPAL - Sincronizando al siguiente minuto exacto (:00)...`);
+        
+        // Esperamos hasta el siguiente :00 (intervalo de 60s)
+        await smartWait(60); 
+        
+        return; 
     }
 
     if (!error.message.includes('400') && !error.message.includes('404') && !error.message.includes('Bad Request')) {
@@ -546,7 +591,7 @@ async function makeRequest() {
     }
 
     if (error.code === 'ECONNABORTED') {
-      await new Promise(resolve => setTimeout(resolve, 60000));
+      await new Promise(resolve => setTimeout(resolve, 5000));
     }
   } finally {
     const now = Date.now();
@@ -571,12 +616,12 @@ async function makeRequest() {
 
 // Función principal del monitor
 async function startMonitor() {
-  const startMessage = `🚀 Iniciando monitor de Italcambio...
+  const startMessage = `🚀 Iniciando monitor Sincronizado...
 📍 Ubicación: ${state.currentConfig.idlocation}
 📅 Fecha: ${state.currentConfig.date}
-⏰ Zona horaria: ${CONFIG.timezone}
-🔁 Intervalo de verificación: ${CONFIG.checkInterval} ms
-📝 Log cada: ${CONFIG.logInterval / 1000 / 60} minutos
+⏰ Sync Normal: 20s (00, 20, 40)
+🐢 Backoff Principal: 60s (xx:00)
+🐢 Backoff Sub: 30s (00, 30)
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
@@ -584,7 +629,11 @@ ${'='.repeat(50)}`;
   // Bucle de monitoreo
   while (state.isRunning) {
     await makeRequest();
-    await new Promise(resolve => setTimeout(resolve, CONFIG.checkInterval));
+    
+    // Si sigue corriendo, esperamos al siguiente "hito" de 20 segundos
+    if (state.isRunning) {
+        await smartWait(20);
+    }
   }
 }
 
@@ -641,14 +690,14 @@ app.get('/', (req, res) => {
         }
         .config-form {
             background: #e3f2fd;
-            padding: 20px;
+            padding: 20px; 
             border-radius: 5px; 
             margin-bottom: 20px;
             border-left: 4px solid #2196F3;
         }
         .auto-booking-form {
             background: #fff3e0;
-            padding: 20px;
+            padding: 20px; 
             border-radius: 5px; 
             margin-bottom: 20px;
             border-left: 4px solid #FF9800;
@@ -743,21 +792,21 @@ app.get('/', (req, res) => {
         }
         .auto-booking-status {
             background: #e8f5e8;
-            padding: 10px;
+            padding: 10px; 
             border-radius: 5px; 
             margin-bottom: 10px;
             border-left: 4px solid #4CAF50;
         }
         .booked-appointments {
             background: #d4edda;
-            padding: 15px;
+            padding: 15px; 
             border-radius: 5px; 
             margin-bottom: 20px;
             border-left: 4px solid #28a745;
         }
         .appointment-item {
             background: white;
-            padding: 10px;
+            padding: 10px; 
             margin: 5px 0;
             border-radius: 4px;
             border-left: 4px solid #28a745;
@@ -766,7 +815,7 @@ app.get('/', (req, res) => {
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Monitor de Italcambio</h1>
+        <h1>🚀 Monitor de Italcambio (Sync Mode)</h1>
         
         <div style="margin-bottom: 20px;">
             ${state.isRunning ?
@@ -901,7 +950,7 @@ app.get('/', (req, res) => {
       if (log.includes('📊') || log.includes('LOG HORARIO')) cssClass = 'log-warning';
       if (log.includes('✅') || log.includes('CITA AGENDADA')) cssClass = 'log-success';
       if (log.includes('📝') || log.includes('Intentando agendar')) cssClass = 'log-info';
-      if (log.includes('🐢') || log.includes('429')) cssClass = 'log-warning'; // Clase para 429
+      if (log.includes('🐢') || log.includes('429')) cssClass = 'log-warning';
 
       return `<div class="log-entry ${cssClass}">${log}</div>`;
     }).join('')}
