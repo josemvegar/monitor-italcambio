@@ -36,7 +36,7 @@ const CONFIG = {
     idlocation: 12,
     date: '15/11/2025'
   },
-  checkInterval: 2000, // 1 segundo entre llamadas
+  checkInterval: 20000, // 1 segundo entre llamadas
   logInterval: 60 * 60 * 1000, // 1 hora en milisegundos
   timezone: 'America/Caracas',
   logFile: 'monitor.log'
@@ -174,7 +174,7 @@ async function checkAmount(idparty, date, cookie) {
     // ⚠️ MANEJO DE 429
     if (statusCode === 429) {
         writeToLog(`🐢 429 TOO MANY REQUESTS en checkAmount - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
         return false;
     }
 
@@ -189,7 +189,7 @@ async function checkAmount(idparty, date, cookie) {
   } catch (error) {
     if (error.response && error.response.status === 429) {
         writeToLog(`🐢 429 TOO MANY REQUESTS (Catch) en checkAmount - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
     } else {
         writeToLog(`❌ Error verificando monto: ${error.message}`);
     }
@@ -257,7 +257,7 @@ async function makeAppointment(schedule, idparty, cookie) {
     // ⚠️ MANEJO DE 429 EN AGENDAMIENTO
     if (statusCode === 429) {
         writeToLog(`🐢 429 TOO MANY REQUESTS al agendar - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
         return false;
     }
 
@@ -296,7 +296,7 @@ async function makeAppointment(schedule, idparty, cookie) {
     // ⚠️ MANEJO DE 429 EN CATCH
     if (error.response && error.response.status === 429) {
         writeToLog(`🐢 429 TOO MANY REQUESTS (Catch) al agendar - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
         return false;
     }
 
@@ -387,7 +387,7 @@ async function getHourlyAvailability(cookie) {
     // ⚠️ MANEJO DE 429
     if (error.response && error.response.status === 429) {
         writeToLog(`🐢 429 TOO MANY REQUESTS en Disponibilidad por Hora - Pausando 5 segundos...`);
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
         return null;
     }
     writeToLog(`❌ Error obteniendo disponibilidad por hora: ${error.message}`);
@@ -536,7 +536,7 @@ async function makeRequest() {
     if (error.response && error.response.status === 429) {
         writeToLog(`🐢 429 TOO MANY REQUESTS en Monitor Principal - Enfriando motores por 5 segundos...`);
         // Esta espera detiene el bucle temporalmente antes de la siguiente iteración
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 60000));
         return; // Salimos para evitar que se ejecute más lógica y se pase al finally
     }
 
@@ -546,7 +546,7 @@ async function makeRequest() {
     }
 
     if (error.code === 'ECONNABORTED') {
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 60000));
     }
   } finally {
     const now = Date.now();
