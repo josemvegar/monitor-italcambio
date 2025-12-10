@@ -619,9 +619,9 @@ async function startMonitor() {
   const startMessage = `🚀 Iniciando monitor Sincronizado...
 📍 Ubicación: ${state.currentConfig.idlocation}
 📅 Fecha: ${state.currentConfig.date}
-⏰ Sync Normal: 20s (00, 20, 40)
-🐢 Backoff Principal: 60s (xx:00)
-🐢 Backoff Sub: 30s (00, 30)
+⏰ Sync Normal: 10s (00, 10, 20, 30, 40, 50)
+🐢 Backoff Principal: 30s (:00, :30)
+🐢 Backoff Sub: 20s (00, 20, 40)
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
