@@ -19,25 +19,25 @@ const CONFIG = {
   generalAvailabilityUrl: TEST_MODE
     ? 'http://localhost:3001/appointmentAPI/public/exchange/availaptment.php'
     : 'https://www.italcambio.com/appointmentAPI/public/exchange/availaptment.php',
-  
+
   hourlyAvailabilityUrl: TEST_MODE
     ? 'http://localhost:3001/appointmentAPI/public/exchange/availaptmentbyhour.php'
     : 'https://www.italcambio.com/appointmentAPI/public/exchange/availaptmentbyhour.php',
-  
+
   amountCheckUrl: TEST_MODE
     ? 'http://localhost:3001/appointmentAPI/public/exchange/amountclientbyinterval.php'
     : 'https://www.italcambio.com/appointmentAPI/public/exchange/amountclientbyinterval.php',
-  
+
   appointmentUrl: TEST_MODE
     ? 'http://localhost:3001/appointmentAPI/public/exchange/appointment.php'
     : 'https://www.italcambio.com/appointmentAPI/public/exchange/appointment.php',
-  
+
   requestBody: {
     idlocation: 12,
     date: '12/12/2025'
   },
   // checkInterval ya no se usa directamente para el setTimeout fijo, se usa smartWait
-  checkInterval: 5000, 
+  checkInterval: 5000,
   logInterval: 60 * 60 * 1000, // 1 hora en milisegundos
   timezone: 'America/Caracas',
   logFile: 'monitor.log'
@@ -102,7 +102,7 @@ async function smartWait(intervalSeconds) {
 
     // Si el target es igual o menor al actual (por milisegundos), saltamos al siguiente ciclo
     if (nextTargetSeconds <= currentSeconds) {
-        nextTargetSeconds += intervalSeconds;
+      nextTargetSeconds += intervalSeconds;
     }
 
     // Calculamos cuánto falta en milisegundos
@@ -112,7 +112,7 @@ async function smartWait(intervalSeconds) {
 
     // Seguridad: evitar ejecuciones dobles si el delay es muy pequeño (<500ms)
     if (delay < 500) {
-        delay += (intervalSeconds * 1000);
+      delay += (intervalSeconds * 1000);
     }
 
     // Debug opcional para ver a qué hora se ejecutará
@@ -216,9 +216,9 @@ async function checkAmount(idparty, date, cookie) {
 
     // ⚠️ MANEJO DE 429 - SUBENDPOINT (10 SEGUNDOS)
     if (statusCode === 429) {
-        writeToLog(`🐢 429 en checkAmount - Sincronizando a :00, :10, :20, :30, :40, :50...`);
-        await smartWait(10); 
-        return false;
+      writeToLog(`🐢 429 en checkAmount - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+      await smartWait(10);
+      return false;
     }
 
     if (statusCode === 200 && Array.isArray(responseData) && responseData[0] && responseData[0].amount === 100) {
@@ -231,10 +231,10 @@ async function checkAmount(idparty, date, cookie) {
 
   } catch (error) {
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 (Catch) en checkAmount - Sincronizando a :00, :10, :20, :30, :40, :50...`);
-        await smartWait(10);
+      writeToLog(`🐢 429 (Catch) en checkAmount - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+      await smartWait(10);
     } else {
-        writeToLog(`❌ Error verificando monto: ${error.message}`);
+      writeToLog(`❌ Error verificando monto: ${error.message}`);
     }
     return false;
   }
@@ -299,9 +299,9 @@ async function makeAppointment(schedule, idparty, cookie) {
 
     // ⚠️ MANEJO DE 429 - SUBENDPOINT (10 SEGUNDOS)
     if (statusCode === 429) {
-        writeToLog(`🐢 429 al agendar - Sincronizando a :00, :10, :20, :30, :40, :50...`);
-        await smartWait(10);
-        return false;
+      writeToLog(`🐢 429 al agendar - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+      await smartWait(10);
+      return false;
     }
 
     const successMessages = [
@@ -310,7 +310,7 @@ async function makeAppointment(schedule, idparty, cookie) {
       'exitosamente'
     ];
 
-    const isSuccess = responseData && responseData.message && 
+    const isSuccess = responseData && responseData.message &&
       successMessages.some(msg => responseData.message.includes(msg));
 
     if (isSuccess) {
@@ -338,9 +338,9 @@ async function makeAppointment(schedule, idparty, cookie) {
   } catch (error) {
     // ⚠️ MANEJO DE 429 EN CATCH - SUBENDPOINT (10 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 (Catch) al agendar - Sincronizando a :00, :10, :20, :30, :40, :50...`);
-        await smartWait(10);
-        return false;
+      writeToLog(`🐢 429 (Catch) al agendar - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+      await smartWait(10);
+      return false;
     }
 
     if (error.response) {
@@ -353,7 +353,7 @@ async function makeAppointment(schedule, idparty, cookie) {
         'exitosamente'
       ];
 
-      const isSuccess = responseData && responseData.message && 
+      const isSuccess = responseData && responseData.message &&
         successMessages.some(msg => responseData.message.includes(msg));
 
       if (isSuccess) {
@@ -429,9 +429,9 @@ async function getHourlyAvailability(cookie) {
   } catch (error) {
     // ⚠️ MANEJO DE 429 - SUBENDPOINT (10 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 en Disponibilidad por Hora - Sincronizando a :00, :10, :20, :30, :40, :50...`);
-        await smartWait(10);
-        return null;
+      writeToLog(`🐢 429 en Disponibilidad por Hora - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+      await smartWait(10);
+      return null;
     }
     writeToLog(`❌ Error obteniendo disponibilidad por hora: ${error.message}`);
     return null;
@@ -449,7 +449,7 @@ async function processAvailability(responseData) {
     const cookie = state.autoBooking.cookies[0]; // Cookie asociada
 
     const hourlyAvailability = await getHourlyAvailability(cookie);
-    
+
     if (!hourlyAvailability || !Array.isArray(hourlyAvailability)) {
       writeToLog('❌ No se pudo obtener la disponibilidad por hora');
       return;
@@ -471,7 +471,7 @@ async function processAvailability(responseData) {
     writeToLog(`🎯 ${validSchedules.length} horario(s) válido(s) encontrado(s) para agendamiento`);
 
     const amountValid = await checkAmount(idparty, state.currentConfig.date, cookie);
-    
+
     if (!amountValid) {
       writeToLog(`❌ Monto no válido para ID Party ${idparty}. Saltando agendamiento.`);
       return;
@@ -483,7 +483,7 @@ async function processAvailability(responseData) {
     if (success) {
       state.autoBooking.idParties.shift(); // Remover el primer idparty
       state.autoBooking.cookies.shift(); // Remover la primera cookie
-      
+
       state.autoBooking.currentPartyIndex = 0;
       state.autoBooking.currentCookieIndex = 0;
 
@@ -546,9 +546,9 @@ async function makeRequest() {
 
     const hasDifferentResponse =
       !response.data ||
-      !Array.isArray(response.data) || 
-      response.data.length === 0 || 
-      (response.data[0] && response.data[0].capacidaddisponible > 0); 
+      !Array.isArray(response.data) ||
+      response.data.length === 0 ||
+      (response.data[0] && response.data[0].capacidaddisponible > 0);
 
     if (hasDifferentResponse) {
       const venezuelaTime = getVenezuelaTime();
@@ -577,12 +577,12 @@ async function makeRequest() {
 
     // ⚠️ PRINCIPAL: MANEJO DE 429 EN EL MONITOR (20 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...`);
-        
-        // Esperamos hasta el siguiente :00, :20, :40 (intervalo de 20s)
-        await smartWait(20); 
-        
-        return; 
+      writeToLog(`🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...`);
+
+      // Esperamos hasta el siguiente :00, :20, :40 (intervalo de 20s)
+      await smartWait(20);
+
+      return;
     }
 
     if (!error.message.includes('400') && !error.message.includes('404') && !error.message.includes('Bad Request')) {
@@ -619,7 +619,7 @@ async function startMonitor() {
   const startMessage = `🚀 Iniciando monitor Sincronizado...
 📍 Ubicación: ${state.currentConfig.idlocation}
 📅 Fecha: ${state.currentConfig.date}
-⏰ Sync Normal: 7s (00, 07, 14, 21, 28, 35, 42, 49, 56)
+⏰ Sync Normal: 8s (00, 08, 16, 24, 32, 40, 48, 56)
 🐢 Backoff Principal: 20s (:00, :20, :40)
 🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
 ${'='.repeat(50)}`;
@@ -629,10 +629,10 @@ ${'='.repeat(50)}`;
   // Bucle de monitoreo
   while (state.isRunning) {
     await makeRequest();
-    
-    // Si sigue corriendo, esperamos al siguiente "hito" de 7 segundos
+
+    // Si sigue corriendo, esperamos al siguiente "hito" de 8 segundos
     if (state.isRunning) {
-      await smartWait(7);
+      await smartWait(8);
     }
   }
 }

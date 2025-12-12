@@ -64,3 +64,23 @@
 [2025-12-11 20:58:05] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
 [2025-12-11 20:59:15] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
 [2025-12-11 20:59:25] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
+[2025-12-11 20:59:35] Monitor detenido por el usuario
+[2025-12-11 20:59:41] 🚀 Iniciando monitor Sincronizado...
+📍 Ubicación: 12
+📅 Fecha: 12/12/2025
+⏰ Sync Normal: 7s (00, 07, 14, 21, 28, 35, 42, 49, 56)
+🐢 Backoff Principal: 20s (:00, :20, :40)
+🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
+==================================================
+[2025-12-11 20:59:49] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties válidos: 1/1 - Cookies: 0
+[2025-12-11 21:00:04] ⚙️ AUTO-BOOKING DESACTIVADO - Hora mínima: 09:00 - ID Parties válidos: 1/1 - Cookies: 1
+[2025-12-11 21:00:06] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties válidos: 1/1 - Cookies: 1
+[2025-12-11 21:01:07] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
+[2025-12-11 21:01:08] Monitor detenido por el usuario
+[2025-12-11 21:03:33] 🚀 Iniciando monitor Sincronizado...
+📍 Ubicación: 12
+📅 Fecha: 12/12/2025
+⏰ Sync Normal: 7s (00, 07, 14, 21, 28, 35, 42, 49, 56)
+🐢 Backoff Principal: 20s (:00, :20, :40)
+🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
+==================================================
