@@ -619,9 +619,9 @@ async function startMonitor() {
   const startMessage = `🚀 Iniciando monitor Sincronizado...
 📍 Ubicación: ${state.currentConfig.idlocation}
 📅 Fecha: ${state.currentConfig.date}
-⏰ Sync Normal: 5s (00, 05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55)
+⏰ Sync Normal: 7s (00, 07, 14, 21, 28, 35, 42, 49, 56)
 🐢 Backoff Principal: 20s (:00, :20, :40)
-🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50) 
+🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
@@ -630,9 +630,9 @@ ${'='.repeat(50)}`;
   while (state.isRunning) {
     await makeRequest();
     
-    // Si sigue corriendo, esperamos al siguiente "hito" de 5 segundos
+    // Si sigue corriendo, esperamos al siguiente "hito" de 7 segundos
     if (state.isRunning) {
-        await smartWait(5);
+      await smartWait(7);
     }
   }
 }
