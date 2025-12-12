@@ -34,10 +34,10 @@ const CONFIG = {
   
   requestBody: {
     idlocation: 12,
-    date: '15/11/2025'
+    date: '12/12/2025'
   },
   // checkInterval ya no se usa directamente para el setTimeout fijo, se usa smartWait
-  checkInterval: 10000, 
+  checkInterval: 5000, 
   logInterval: 60 * 60 * 1000, // 1 hora en milisegundos
   timezone: 'America/Caracas',
   logFile: 'monitor.log'
@@ -97,7 +97,7 @@ async function smartWait(intervalSeconds) {
     const currentMillis = now.milliseconds();
 
     // Calculamos el siguiente hito (target) basado en el intervalo
-    // Ejemplo interval=20: Si son las :12 -> target :20. Si son las :25 -> target :40.
+    // Ejemplo interval=5: Si son las :12 -> target :15. Si son las :17 -> target :20.
     let nextTargetSeconds = Math.ceil((currentSeconds + 0.1) / intervalSeconds) * intervalSeconds;
 
     // Si el target es igual o menor al actual (por milisegundos), saltamos al siguiente ciclo
@@ -214,10 +214,10 @@ async function checkAmount(idparty, date, cookie) {
     const statusCode = response.status;
     const responseData = response.data;
 
-    // ⚠️ MANEJO DE 429 - SUBENDPOINT (20 SEGUNDOS)
+    // ⚠️ MANEJO DE 429 - SUBENDPOINT (10 SEGUNDOS)
     if (statusCode === 429) {
-        writeToLog(`🐢 429 en checkAmount - Sincronizando a :00 o :20 o :40...`);
-        await smartWait(20); 
+        writeToLog(`🐢 429 en checkAmount - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+        await smartWait(10); 
         return false;
     }
 
@@ -231,8 +231,8 @@ async function checkAmount(idparty, date, cookie) {
 
   } catch (error) {
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 (Catch) en checkAmount - Sincronizando a :00 o :20 o :40...`);
-        await smartWait(20);
+        writeToLog(`🐢 429 (Catch) en checkAmount - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+        await smartWait(10);
     } else {
         writeToLog(`❌ Error verificando monto: ${error.message}`);
     }
@@ -297,10 +297,10 @@ async function makeAppointment(schedule, idparty, cookie) {
 
     writeToLog(`📊 Respuesta del servidor: Status ${statusCode}`);
 
-    // ⚠️ MANEJO DE 429 - SUBENDPOINT (30 SEGUNDOS)
+    // ⚠️ MANEJO DE 429 - SUBENDPOINT (10 SEGUNDOS)
     if (statusCode === 429) {
-        writeToLog(`🐢 429 al agendar - Sincronizando a :00 o :20 o :40...`);
-        await smartWait(20);
+        writeToLog(`🐢 429 al agendar - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+        await smartWait(10);
         return false;
     }
 
@@ -336,10 +336,10 @@ async function makeAppointment(schedule, idparty, cookie) {
     }
 
   } catch (error) {
-    // ⚠️ MANEJO DE 429 EN CATCH - SUBENDPOINT (30 SEGUNDOS)
+    // ⚠️ MANEJO DE 429 EN CATCH - SUBENDPOINT (10 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 (Catch) al agendar - Sincronizando a :00 o :20 o :40...`);
-        await smartWait(20);
+        writeToLog(`🐢 429 (Catch) al agendar - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+        await smartWait(10);
         return false;
     }
 
@@ -427,10 +427,10 @@ async function getHourlyAvailability(cookie) {
 
     return response.data;
   } catch (error) {
-    // ⚠️ MANEJO DE 429 - SUBENDPOINT (30 SEGUNDOS)
+    // ⚠️ MANEJO DE 429 - SUBENDPOINT (10 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 en Disponibilidad por Hora - Sincronizando a :00 o :20 :40...`);
-        await smartWait(20);
+        writeToLog(`🐢 429 en Disponibilidad por Hora - Sincronizando a :00, :10, :20, :30, :40, :50...`);
+        await smartWait(10);
         return null;
     }
     writeToLog(`❌ Error obteniendo disponibilidad por hora: ${error.message}`);
@@ -575,12 +575,12 @@ async function makeRequest() {
   } catch (error) {
     const venezuelaTime = getVenezuelaTime();
 
-    // ⚠️ PRINCIPAL: MANEJO DE 429 EN EL MONITOR (30 SEGUNDOS)
+    // ⚠️ PRINCIPAL: MANEJO DE 429 EN EL MONITOR (20 SEGUNDOS)
     if (error.response && error.response.status === 429) {
-        writeToLog(`🐢 429 PRINCIPAL - Sincronizando a los 30 segundos (:00 o :30)...`);
+        writeToLog(`🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...`);
         
-        // Esperamos hasta el siguiente :00 o :30 (intervalo de 30s)
-        await smartWait(30); 
+        // Esperamos hasta el siguiente :00, :20, :40 (intervalo de 20s)
+        await smartWait(20); 
         
         return; 
     }
@@ -619,9 +619,9 @@ async function startMonitor() {
   const startMessage = `🚀 Iniciando monitor Sincronizado...
 📍 Ubicación: ${state.currentConfig.idlocation}
 📅 Fecha: ${state.currentConfig.date}
-⏰ Sync Normal: 10s (00, 10, 20, 30, 40, 50)
-🐢 Backoff Principal: 30s (:00, :30)
-🐢 Backoff Sub: 20s (00, 20, 40)
+⏰ Sync Normal: 5s (00, 05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55)
+🐢 Backoff Principal: 20s (:00, :20, :40)
+🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
@@ -630,9 +630,9 @@ ${'='.repeat(50)}`;
   while (state.isRunning) {
     await makeRequest();
     
-    // Si sigue corriendo, esperamos al siguiente "hito" de 10 segundos
+    // Si sigue corriendo, esperamos al siguiente "hito" de 5 segundos
     if (state.isRunning) {
-        await smartWait(10);
+        await smartWait(5);
     }
   }
 }
