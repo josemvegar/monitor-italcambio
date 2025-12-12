@@ -621,7 +621,7 @@ async function startMonitor() {
 📅 Fecha: ${state.currentConfig.date}
 ⏰ Sync Normal: 5s (00, 05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55)
 🐢 Backoff Principal: 20s (:00, :20, :40)
-🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
+🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50) 
 ${'='.repeat(50)}`;
 
   writeToLog(startMessage);
