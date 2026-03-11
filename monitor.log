@@ -84,3 +84,16 @@
 🐢 Backoff Principal: 20s (:00, :20, :40)
 🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
 ==================================================
+[2025-12-11 21:04:46] Monitor detenido por el usuario
+[2025-12-11 21:04:49] 🚀 Iniciando monitor Sincronizado...
+📍 Ubicación: 12
+📅 Fecha: 12/12/2025
+⏰ Sync Normal: 8s (00, 08, 16, 24, 32, 40, 48, 56)
+🐢 Backoff Principal: 20s (:00, :20, :40)
+🐢 Backoff Sub: 10s (00, 10, 20, 30, 40, 50)
+==================================================
+[2025-12-11 21:05:03] ⚙️ AUTO-BOOKING ACTIVADO - Hora mínima: 09:00 - ID Parties válidos: 1/1 - Cookies: 1
+[2025-12-11 21:05:24] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
+[2025-12-11 21:06:08] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
+[2025-12-11 21:06:24] 🐢 429 PRINCIPAL - Sincronizando a los 20 segundos (:00, :20, :40)...
+[2025-12-11 21:06:58] Monitor detenido por el usuario
